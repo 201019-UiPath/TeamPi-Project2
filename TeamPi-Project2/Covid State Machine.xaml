@@ -1,0 +1,294 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Covid_State_Machine" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="658,772" sap2010:WorkflowViewState.IdRef="Covid_State_Machine_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="21">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="18">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <StateMachine InitialState="{x:Reference __ReferenceID5}" DisplayName="Covid_State_Machine" sap:VirtualizedContainerService.HintSize="638,712" sap2010:WorkflowViewState.IdRef="StateMachine_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+        <x:Double x:Key="StateContainerWidth">604</x:Double>
+        <x:Double x:Key="StateContainerHeight">676</x:Double>
+        <av:PointCollection x:Key="ConnectorLocation">294,77.1666666666667 293.3,77.1666666666667 293.3,100</av:PointCollection>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <State x:Name="__ReferenceID5" sap2010:Annotation.AnnotationText="Take user input about how they feel and their location" DisplayName="Initial State" sap:VirtualizedContainerService.HintSize="134,140" sap2010:WorkflowViewState.IdRef="State_1">
+      <State.Entry>
+        <Sequence sap:VirtualizedContainerService.HintSize="376,448" sap2010:WorkflowViewState.IdRef="Sequence_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InputDialog Label="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Options="[{&quot;Well&quot;,&quot;Ill&quot;}]" Title="How are you feeling today?">
+            <ui:InputDialog.Result>
+              <OutArgument x:TypeArguments="x:String">[UserHealth]</OutArgument>
+            </ui:InputDialog.Result>
+          </ui:InputDialog>
+          <ui:InputDialog Label="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False" Options="[{&quot;Alabama-AL&quot;,&quot;Alaska-AK&quot;,&quot;Arizona-AZ&quot;,&quot;Arkansas-AR&quot;,&quot;California-CA&quot;,&quot;Colorado-CO&quot;,&quot;Connecticut-CT&quot;,&quot;Delaware-DE&quot;,&quot;Florida-FL&quot;,&quot;Georgia-GA&quot;,&quot;Hawaii-HI&quot;,&quot;Idaho-ID&quot;,&quot;Illinois-IL&quot;,&quot;Indiana-IN&quot;,&quot;Iowa-IA&quot;,&quot;Kansas-KS&quot;,&quot;Kentucky-KY&quot;,&quot;Louisiana-LA&quot;,&quot;Maine-ME&quot;,&quot;Maryland-MD&quot;,&quot;Massachusetts-MA&quot;,&quot;Michigan-MI&quot;,&quot;Minnesota-MN&quot;,&quot;Mississippi-MS&quot;,&quot;Missouri-MO&quot;,&quot;Montana-MT&quot;,&quot;Nebraska-NE&quot;,&quot;Nevada-NV&quot;,&quot;New Hampshire-NH&quot;,&quot;New Jersey-NJ&quot;,&quot;New Mexico-NM&quot;,&quot;New York-NY&quot;,&quot;North Carolina-NC&quot;,&quot;North Dakota-ND&quot;,&quot;Ohio-OH&quot;,&quot;Oklahoma-OK&quot;,&quot;Oregon-OR&quot;,&quot;Pennsylvania-PA&quot;,&quot;Rhode Island-RI&quot;,&quot;South Carolina-SC&quot;,&quot;South Dakota-SD&quot;,&quot;Tennessee-TN&quot;,&quot;Texas-TX&quot;,&quot;Utah-UT&quot;,&quot;Vermont-VT&quot;,&quot;Virginia-VA&quot;,&quot;Washington-WA&quot;,&quot;West Virginia-WV&quot;,&quot;Wisconsin-WI&quot;,&quot;Wyoming-WY&quot;}]" Title="What state do you live in?">
+            <ui:InputDialog.Result>
+              <OutArgument x:TypeArguments="x:String">[UserState]</OutArgument>
+            </ui:InputDialog.Result>
+          </ui:InputDialog>
+          <ui:InputDialog Label="{x:Null}" Options="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="InputDialog_3" IsPassword="False" Title="What county do you live in?">
+            <ui:InputDialog.Result>
+              <OutArgument x:TypeArguments="x:String">[UserCounty]</OutArgument>
+            </ui:InputDialog.Result>
+          </ui:InputDialog>
+        </Sequence>
+      </State.Entry>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">233,100</av:Point>
+          <av:Size x:Key="ShapeSize">134,140</av:Size>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <State.Transitions>
+        <Transition DisplayName="User feels well" sap:VirtualizedContainerService.HintSize="451.333333333333,521.333333333333" sap2010:WorkflowViewState.IdRef="Transition_6">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:PointCollection x:Key="ConnectorLocation">306.7,240 306.7,270 191,270 191,160 161,160</av:PointCollection>
+              <x:Int32 x:Key="SrcConnectionPointIndex">43</x:Int32>
+              <x:Int32 x:Key="DestConnectionPointIndex">36</x:Int32>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Transition.Condition>[UserHealth.Equals("Well")]</Transition.Condition>
+          <Transition.To>
+            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="asks user if they want county data if its available" DisplayName="Check for county data" sap:VirtualizedContainerService.HintSize="142,123.333333333333" sap2010:WorkflowViewState.IdRef="State_2">
+              <State.Entry>
+                <If Condition="[CountyAvailable.Contains(UserState)]" sap:VirtualizedContainerService.HintSize="642,246" sap2010:WorkflowViewState.IdRef="If_1">
+                  <If.Then>
+                    <ui:InputDialog Label="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="InputDialog_4" IsPassword="False" Options="[{&quot;Yes&quot;,&quot;No&quot;}]" Title="Would you like to see data separated by county?">
+                      <ui:InputDialog.Result>
+                        <OutArgument x:TypeArguments="ui:GenericValue">[CountyData]</OutArgument>
+                      </ui:InputDialog.Result>
+                    </ui:InputDialog>
+                  </If.Then>
+                  <If.Else>
+                    <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_1">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="ui:GenericValue">[CountyData]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="ui:GenericValue">["No"]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </If.Else>
+                </If>
+              </State.Entry>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">19,98.3333333333333</av:Point>
+                  <av:Size x:Key="ShapeSize">142,123.333333333333</av:Size>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  <x:Double x:Key="StateContainerWidth">107.99999999999997</x:Double>
+                  <x:Double x:Key="StateContainerHeight">25</x:Double>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <State.Transitions>
+                <Transition DisplayName="Yes County Data" sap:VirtualizedContainerService.HintSize="451.333333333333,521.333333333333" sap2010:WorkflowViewState.IdRef="Transition_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:PointCollection x:Key="ConnectorLocation">90,221.666666666667 90,251.666666666667 133.3,251.666666666667 133.3,289.333333333333</av:PointCollection>
+                      <x:Int32 x:Key="SrcConnectionPointIndex">39</x:Int32>
+                      <x:Int32 x:Key="DestConnectionPointIndex">34</x:Int32>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Transition.Condition>[CountyData.Equals("Yes")]</Transition.Condition>
+                  <Transition.To>
+                    <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Compiles county data" DisplayName="County Data" sap:VirtualizedContainerService.HintSize="134,106.666666666667" sap2010:WorkflowViewState.IdRef="State_6">
+                      <State.Entry>
+                        <Sequence sap:VirtualizedContainerService.HintSize="376,310.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CountyCovid workflow" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="CountyCovid.xaml">
+                            <ui:InvokeWorkflowFile.Arguments>
+                              <InArgument x:TypeArguments="x:String" x:Key="State">[StateName(0)]</InArgument>
+                            </ui:InvokeWorkflowFile.Arguments>
+                          </ui:InvokeWorkflowFile>
+                          <ui:InputDialog Label="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="InputDialog_5" IsPassword="False" Options="[{&quot;Yes&quot;,&quot;No&quot;}]" Title="Would you like to also see state data?">
+                            <ui:InputDialog.Result>
+                              <OutArgument x:TypeArguments="ui:GenericValue">[StateData]</OutArgument>
+                            </ui:InputDialog.Result>
+                          </ui:InputDialog>
+                        </Sequence>
+                      </State.Entry>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">73,289.333333333333</av:Point>
+                          <av:Size x:Key="ShapeSize">134,106.666666666667</av:Size>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          <x:Double x:Key="StateContainerWidth">100</x:Double>
+                          <x:Double x:Key="StateContainerHeight">25</x:Double>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <State.Transitions>
+                        <Transition DisplayName="Yes State Data" sap2010:WorkflowViewState.IdRef="Transition_3">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <av:PointCollection x:Key="ConnectorLocation">133.3,396 133.3,426 130,426 130,464</av:PointCollection>
+                              <x:Int32 x:Key="SrcConnectionPointIndex">35</x:Int32>
+                              <x:Int32 x:Key="DestConnectionPointIndex">38</x:Int32>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Transition.Condition>[StateData.Equals("Yes")]</Transition.Condition>
+                          <Transition.To>
+                            <State x:Name="__ReferenceID0" sap2010:Annotation.AnnotationText="Compiles state data" DisplayName="State Data" sap:VirtualizedContainerService.HintSize="157.333333333333,92" sap2010:WorkflowViewState.IdRef="State_5">
+                              <State.Entry>
+                                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CDC Data Gathering workflow" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="CDC Data Gathering.xaml">
+                                  <ui:InvokeWorkflowFile.Arguments>
+                                    <InArgument x:TypeArguments="x:String" x:Key="StateAbbr">[StateName(1)]</InArgument>
+                                  </ui:InvokeWorkflowFile.Arguments>
+                                </ui:InvokeWorkflowFile>
+                              </State.Entry>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <av:Point x:Key="ShapeLocation">51.3333333333333,464</av:Point>
+                                  <av:Size x:Key="ShapeSize">157.333333333333,92</av:Size>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                  <x:Double x:Key="StateContainerWidth">123.33333333333333</x:Double>
+                                  <x:Double x:Key="StateContainerHeight">25</x:Double>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <State.Transitions>
+                                <Transition DisplayName="T2" sap2010:WorkflowViewState.IdRef="Transition_2">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <av:PointCollection x:Key="ConnectorLocation">137.866666666667,556 137.866666666667,671.666666666667 246.4,671.666666666667 246.4,641.666666666667</av:PointCollection>
+                                      <x:Int32 x:Key="SrcConnectionPointIndex">43</x:Int32>
+                                      <x:Int32 x:Key="DestConnectionPointIndex">7</x:Int32>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <Transition.To>
+                                    <State x:Name="__ReferenceID3" sap2010:Annotation.AnnotationText="put together what user wants in email" DisplayName="Compile Emails" sap:VirtualizedContainerService.HintSize="134,123.333333333333" sap2010:WorkflowViewState.IdRef="State_4">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <av:Point x:Key="ShapeLocation">233,518.333333333333</av:Point>
+                                          <av:Size x:Key="ShapeSize">134,123.333333333333</av:Size>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <State.Transitions>
+                                        <Transition DisplayName="T1" sap:VirtualizedContainerService.HintSize="451.333333333333,521.333333333333" sap2010:WorkflowViewState.IdRef="Transition_1">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <av:PointCollection x:Key="ConnectorLocation">286.6,518.333333333333 286.6,488.333333333333 433.1,488.333333333333 433.1,518.333333333333</av:PointCollection>
+                                              <x:Int32 x:Key="SrcConnectionPointIndex">30</x:Int32>
+                                              <x:Int32 x:Key="DestConnectionPointIndex">10</x:Int32>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <Transition.To>
+                                            <State x:Name="__ReferenceID4" sap2010:Annotation.AnnotationText="send email to user with what they wanted" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="134,123.333333333333" sap2010:WorkflowViewState.IdRef="State_3" IsFinal="True">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <av:Point x:Key="ShapeLocation">413,518.333333333333</av:Point>
+                                                  <av:Size x:Key="ShapeSize">134,123.333333333333</av:Size>
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </State>
+                                          </Transition.To>
+                                        </Transition>
+                                      </State.Transitions>
+                                    </State>
+                                  </Transition.To>
+                                </Transition>
+                              </State.Transitions>
+                            </State>
+                          </Transition.To>
+                        </Transition>
+                      </State.Transitions>
+                    </State>
+                  </Transition.To>
+                </Transition>
+                <Transition DisplayName="No County Data" sap2010:WorkflowViewState.IdRef="Transition_5">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:PointCollection x:Key="ConnectorLocation">19,184.666666666667 0,184.666666666667 0,468.6 51.3333333333333,468.6</av:PointCollection>
+                      <x:Int32 x:Key="SrcConnectionPointIndex">53</x:Int32>
+                      <x:Int32 x:Key="DestConnectionPointIndex">1</x:Int32>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Transition.To>
+                    <x:Reference>__ReferenceID0</x:Reference>
+                  </Transition.To>
+                  <Transition.Condition>[CountyData.Equals("No")]</Transition.Condition>
+                </Transition>
+              </State.Transitions>
+              <State.Variables>
+                <Variable x:TypeArguments="ui:GenericValue" Name="CountyData" />
+              </State.Variables>
+            </State>
+          </Transition.To>
+        </Transition>
+      </State.Transitions>
+    </State>
+    <x:Reference>__ReferenceID1</x:Reference>
+    <x:Reference>__ReferenceID2</x:Reference>
+    <x:Reference>__ReferenceID0</x:Reference>
+    <x:Reference>__ReferenceID3</x:Reference>
+    <x:Reference>__ReferenceID4</x:Reference>
+    <StateMachine.Variables>
+      <Variable x:TypeArguments="x:String" Name="UserHealth" />
+      <Variable x:TypeArguments="s:String[]" Default="[{&quot;California&quot;,&quot;Florida&quot;,&quot;Massachusetts&quot;,&quot;New Jersey&quot;,&quot;New York&quot;,&quot;Ohio&quot;,&quot;Pennsylvania&quot;,&quot;South Carolina&quot;,&quot;Texas&quot;,&quot;Washington&quot;}]" Name="CountyAvailable" />
+      <Variable x:TypeArguments="x:String" Name="UserState" />
+      <Variable x:TypeArguments="s:String[]" Default="[UserState.Split(New Char() {&quot;-&quot;c})]" Name="StateName" />
+      <Variable x:TypeArguments="x:String" Name="UserCounty" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="StateData" />
+    </StateMachine.Variables>
+  </StateMachine>
+</Activity>
