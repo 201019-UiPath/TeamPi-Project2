@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>506,1505.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>506,1629.33333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="27">
@@ -62,7 +62,7 @@
       <AssemblyReference>RestSharp</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="486,1405.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_10">
+  <Sequence sap:VirtualizedContainerService.HintSize="486,1529.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_10">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="State" />
       <Variable x:TypeArguments="x:String" Name="Beginning" />
@@ -71,6 +71,7 @@
       <Variable x:TypeArguments="sd:DataTable" Name="CDCData" />
       <Variable x:TypeArguments="x:String" Name="table" />
       <Variable x:TypeArguments="x:Int32" Name="code" />
+      <Variable x:TypeArguments="x:String" Name="test" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -90,7 +91,7 @@
         <OutArgument x:TypeArguments="x:String">[Beginning]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[today.AddDays(-8).ToString("yyyy-MM-dd")]</InArgument>
+        <InArgument x:TypeArguments="x:String">[today.AddDays(-7).ToString("yyyy-MM-dd")]</InArgument>
       </Assign.Value>
     </Assign>
     <Assign sap:VirtualizedContainerService.HintSize="444,62" sap2010:WorkflowViewState.IdRef="Assign_15">
@@ -122,10 +123,12 @@
     <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="pnew_case" DataTable="[CDCData]" DisplayName="Remove pnew_case" sap:VirtualizedContainerService.HintSize="444,22" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_1" />
     <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="pnew_death" DataTable="[CDCData]" DisplayName="Remove pnew_death" sap:VirtualizedContainerService.HintSize="444,22" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_2" />
     <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="created_at" DataTable="[CDCData]" DisplayName="Remove created_at" sap:VirtualizedContainerService.HintSize="444,22" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_3" />
+    <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="tot_cases" DataTable="[CDCData]" DisplayName="Remove tot_cases" sap:VirtualizedContainerService.HintSize="444,22" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_7" />
     <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="consent_cases" DataTable="[CDCData]" DisplayName="Remove consent_cases" sap:VirtualizedContainerService.HintSize="444,22" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_4" />
     <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="consent_deaths" DataTable="[CDCData]" DisplayName="Remove consent_deaths" sap:VirtualizedContainerService.HintSize="444,22" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_5" />
+    <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="tot_death" DataTable="[CDCData]" DisplayName="Remove tot_death" sap:VirtualizedContainerService.HintSize="444,22" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_8" />
     <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="state" DataTable="[CDCData]" DisplayName="Remove state" sap:VirtualizedContainerService.HintSize="444,22" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_6" />
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="444,287.333333333333" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" WorkbookPath="CDC data.xlsx">
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="444,287.333333333333" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" WorkbookPath="CDC_data.xlsx">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
@@ -142,17 +145,17 @@
         </ActivityAction>
       </ui:ExcelApplicationScope.Body>
     </ui:ExcelApplicationScope>
-    <bec:ColumnChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" ImageCopy="{x:Null}" ModifyPassword="{x:Null}" CellRange="$A$2:$C$9" ChartTitle="Cases over past week" ChartType="ColumnStacked" Delay="3" DisplayName="Column Chart" FilePath="C:\Users\nfh22\OneDrive\Desktop\Training\TeamPi-Project2\TeamPi-Project2\CDC data.xlsx" sap:VirtualizedContainerService.HintSize="444,72" sap2010:WorkflowViewState.IdRef="ColumnChart_1" LegendRange="$B$1:$C$9" SheetName="Sheet1" ShowLegendKey="True" ShowValuePosition="OutsideEnd" ShowValueTextOrientation="Horizontal">
+    <bec:ColumnChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" ImageCopy="{x:Null}" ModifyPassword="{x:Null}" CellRange="$A$2:$B$8" ChartTitle="Cases over past week" ChartType="ColumnClustered" ContinueOnError="False" Delay="3" DisplayName="Column Chart" FilePath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-P2\Case Data Services\CDC_data.xlsx" sap:VirtualizedContainerService.HintSize="444,72" sap2010:WorkflowViewState.IdRef="ColumnChart_1" LegendRange="$B$1:$B$8" SheetName="Sheet1" ShowLegendKey="True" ShowValuePosition="OutsideEnd" ShowValueTextOrientation="Horizontal">
       <bec:ColumnChart.Options>
-        <bec:ShowOptions AutoText="True" DataLabelsType="ShowNone" HasLeaderLines="False" LegendKey="ShowLabel" Separator="" ShowBubbleSize="False" ShowCategoryName="False" ShowLegend="False" ShowPercentage="False" ShowSeriesName="False" ShowValue="False" />
+        <bec:ShowOptions AutoText="False" DataLabelsType="ShowNone" HasLeaderLines="False" LegendKey="ShowNone" Separator="" ShowBubbleSize="False" ShowCategoryName="False" ShowLegend="False" ShowPercentage="False" ShowSeriesName="False" ShowValue="False" />
       </bec:ColumnChart.Options>
       <bec:ColumnChart.Size>
         <bec:ChartSize Height="250" Left="50" Top="50" Width="250" />
       </bec:ColumnChart.Size>
     </bec:ColumnChart>
-    <bec:ColumnChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" ImageCopy="{x:Null}" ModifyPassword="{x:Null}" CellRange="$A$9,$D$2:$E$9" ChartTitle="Cases over past week" ChartType="ColumnStacked" Delay="3" DisplayName="Column Chart" FilePath="C:\Users\nfh22\OneDrive\Desktop\Training\TeamPi-Project2\TeamPi-Project2\CDC data.xlsx" sap:VirtualizedContainerService.HintSize="444,72" sap2010:WorkflowViewState.IdRef="ColumnChart_2" LegendRange="$D$2:$D$9,$E$2:$E$9" SheetName="Sheet1" ShowLegendKey="True" ShowValuePosition="OutsideEnd" ShowValueTextOrientation="Horizontal">
+    <bec:ColumnChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" ImageCopy="{x:Null}" ModifyPassword="{x:Null}" CellRange="$C$2:$C$8" ChartTitle="Deaths over past week" ChartType="ColumnStacked" ContinueOnError="False" Delay="3" DisplayName="Column Chart" FilePath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-P2\Case Data Services\CDC_data.xlsx" sap:VirtualizedContainerService.HintSize="444,72" sap2010:WorkflowViewState.IdRef="ColumnChart_2" LegendRange="$C$2:$C$8" SheetName="Sheet1" ShowLegendKey="True" ShowValuePosition="OutsideEnd" ShowValueTextOrientation="Horizontal">
       <bec:ColumnChart.Options>
-        <bec:ShowOptions AutoText="True" DataLabelsType="ShowPercent" HasLeaderLines="False" LegendKey="ShowLabel" Separator="" ShowBubbleSize="False" ShowCategoryName="False" ShowLegend="True" ShowPercentage="False" ShowSeriesName="False" ShowValue="False" />
+        <bec:ShowOptions AutoText="False" DataLabelsType="ShowNone" HasLeaderLines="False" LegendKey="ShowNone" Separator="" ShowBubbleSize="False" ShowCategoryName="False" ShowLegend="False" ShowPercentage="False" ShowSeriesName="False" ShowValue="False" />
       </bec:ColumnChart.Options>
       <bec:ColumnChart.Size>
         <bec:ChartSize Height="250" Left="50" Top="50" Width="250" />
