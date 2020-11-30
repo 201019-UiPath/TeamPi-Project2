@@ -145,7 +145,7 @@
         </ActivityAction>
       </ui:ExcelApplicationScope.Body>
     </ui:ExcelApplicationScope>
-    <bec:ColumnChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" ImageCopy="{x:Null}" ModifyPassword="{x:Null}" CellRange="$A$2:$B$8" ChartTitle="Cases over past week" ChartType="ColumnClustered" ContinueOnError="False" Delay="3" DisplayName="Column Chart" FilePath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-P2\Case Data Services\CDC_data.xlsx" sap:VirtualizedContainerService.HintSize="444,72" sap2010:WorkflowViewState.IdRef="ColumnChart_1" LegendRange="$B$1:$B$8" SheetName="Sheet1" ShowLegendKey="True" ShowValuePosition="OutsideEnd" ShowValueTextOrientation="Horizontal">
+    <bec:ColumnChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" CellRange="A2:B8" ChartTitle="Cases over past week" ChartType="ColumnClustered" ContinueOnError="False" Delay="3" DisplayName="Column Chart" FilePath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-P2\Case Data Services\CDC_data.xlsx" sap:VirtualizedContainerService.HintSize="444,72" sap2010:WorkflowViewState.IdRef="ColumnChart_1" ImageCopy="C:\Users\nfh22\OneDrive\Desktop\TeamPi-P2\Case Data Services\NewCasesState.jpeg" LegendRange="B1:B8" SheetName="Sheet1" ShowLegendKey="True" ShowValuePosition="OutsideEnd" ShowValueTextOrientation="Horizontal">
       <bec:ColumnChart.Options>
         <bec:ShowOptions AutoText="False" DataLabelsType="ShowNone" HasLeaderLines="False" LegendKey="ShowNone" Separator="" ShowBubbleSize="False" ShowCategoryName="False" ShowLegend="False" ShowPercentage="False" ShowSeriesName="False" ShowValue="False" />
       </bec:ColumnChart.Options>
@@ -153,7 +153,7 @@
         <bec:ChartSize Height="250" Left="50" Top="50" Width="250" />
       </bec:ColumnChart.Size>
     </bec:ColumnChart>
-    <bec:ColumnChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" ImageCopy="{x:Null}" ModifyPassword="{x:Null}" CellRange="$C$2:$C$8" ChartTitle="Deaths over past week" ChartType="ColumnStacked" ContinueOnError="False" Delay="3" DisplayName="Column Chart" FilePath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-P2\Case Data Services\CDC_data.xlsx" sap:VirtualizedContainerService.HintSize="444,72" sap2010:WorkflowViewState.IdRef="ColumnChart_2" LegendRange="$C$2:$C$8" SheetName="Sheet1" ShowLegendKey="True" ShowValuePosition="OutsideEnd" ShowValueTextOrientation="Horizontal">
+    <bec:ColumnChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" CellRange="C2:C8" ChartTitle="Deaths over past week" ChartType="ColumnClustered" ContinueOnError="False" Delay="3" DisplayName="Column Chart" FilePath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-P2\Case Data Services\CDC_data.xlsx" sap:VirtualizedContainerService.HintSize="444,72" sap2010:WorkflowViewState.IdRef="ColumnChart_2" ImageCopy="C:\Users\nfh22\OneDrive\Desktop\TeamPi-P2\Case Data Services\NewDeathsState.jpeg" LegendRange="C2:C8" SheetName="Sheet1" ShowLegendKey="True" ShowValuePosition="OutsideEnd" ShowValueTextOrientation="Horizontal">
       <bec:ColumnChart.Options>
         <bec:ShowOptions AutoText="False" DataLabelsType="ShowNone" HasLeaderLines="False" LegendKey="ShowNone" Separator="" ShowBubbleSize="False" ShowCategoryName="False" ShowLegend="False" ShowPercentage="False" ShowSeriesName="False" ShowValue="False" />
       </bec:ColumnChart.Options>

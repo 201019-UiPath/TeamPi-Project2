@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="538,1972" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:bec="clr-namespace:BalaReva.Excel.Charts;assembly=BalaReva.Excel" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="614.666666666667,2336.66666666667" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:bec="clr-namespace:BalaReva.Excel.Charts;assembly=BalaReva.Excel" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
       <x:String>System.Activities</x:String>
@@ -49,17 +49,19 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="518,1872" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence sap:VirtualizedContainerService.HintSize="594.666666666667,2236.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Default="Texas" Name="State" />
+      <Variable x:TypeArguments="x:String" Default="Florida" Name="State" />
       <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="StateByCounty" />
+      <Variable x:TypeArguments="x:String" Name="index" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="rows" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Open State Worldometer" sap:VirtualizedContainerService.HintSize="476,442.666666666667" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="https://www.worldometers.info/coronavirus/country/us/">
+    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Open State Worldometer" sap:VirtualizedContainerService.HintSize="552.666666666667,442.666666666667" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="https://www.worldometers.info/coronavirus/country/us/">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -125,14 +127,14 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:OpenBrowser>
-    <Sequence DisplayName="Data Scraping" sap:VirtualizedContainerService.HintSize="476,746" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <Sequence DisplayName="Data Scraping" sap:VirtualizedContainerService.HintSize="552.666666666667,746" sap2010:WorkflowViewState.IdRef="Sequence_4">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Browser state page" sap:VirtualizedContainerService.HintSize="434,654" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="1323a6dafa0286f9e68b77e405ba2673" Selector="&lt;html app='msedge.exe' title='Texas Coronavirus: *' /&gt;&#xA;">
+      <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Browser state page" sap:VirtualizedContainerService.HintSize="434,654" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="1323a6dafa0286f9e68b77e405ba2673" Selector="&lt;html app='msedge.exe' title='* Coronavirus: *' /&gt;">
         <ui:BrowserScope.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
@@ -166,24 +168,54 @@
         </ui:BrowserScope.Body>
       </ui:BrowserScope>
     </Sequence>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="476,287.333333333333" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" WorkbookPath="CountyDataByState.xlsx">
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="552.666666666667,550" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" WorkbookPath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-P2\Case Data Services\CountyDataByState.xlsx">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,178.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,441.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ExcelWriteRange AddHeaders="True" DataTable="[StateByCounty]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_9" SheetName="Sheet1" StartingCell="A1" />
+            <ui:ExcelDeleteRange DisplayName="Delete Range" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="ExcelDeleteRange_1" Range="A:C" SheetName="Sheet1" ShiftCells="False" ShiftOption="EntireColumn" />
+            <ui:ExcelWriteRange AddHeaders="True" DataTable="[StateByCounty]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_9" SheetName="Sheet1">
+              <ui:ExcelWriteRange.StartingCell>
+                <InArgument x:TypeArguments="x:String">
+                  <Literal x:TypeArguments="x:String" Value="" />
+                </InArgument>
+              </ui:ExcelWriteRange.StartingCell>
+            </ui:ExcelWriteRange>
+            <ui:ExcelReadRange AddHeaders="True" DataTable="[StateByCounty]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="Sheet1">
+              <ui:ExcelReadRange.Range>
+                <InArgument x:TypeArguments="x:String">
+                  <Literal x:TypeArguments="x:String" Value="" />
+                </InArgument>
+              </ui:ExcelReadRange.Range>
+            </ui:ExcelReadRange>
+            <Assign sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[index]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[StateByCounty.Rows.Count.ToString]</InArgument>
+              </Assign.Value>
+            </Assign>
           </Sequence>
         </ActivityAction>
       </ui:ExcelApplicationScope.Body>
     </ui:ExcelApplicationScope>
-    <bec:PieChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" ImageCopy="{x:Null}" ModifyPassword="{x:Null}" CellRange="$A$3:$B$256" ChartTitle="New Cases" ChartType="Pie" ContinueOnError="False" Delay="3" DisplayName="Pie Chart New Cases" FilePath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-P2\Case Data Services\CountyDataByState.xlsx" sap:VirtualizedContainerService.HintSize="476,72" sap2010:WorkflowViewState.IdRef="PieChart_4" LegendRange="$B$3:$B$256" SheetName="Sheet1">
+    <Assign sap:VirtualizedContainerService.HintSize="552.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="ui:GenericValue">[rows]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="ui:GenericValue">[Convert.ToInt32(index)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <bec:PieChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" CellRange="[&quot;A3:B&quot;+(rows-1).ToString]" ChartTitle="New Cases" ChartType="Pie" ContinueOnError="False" Delay="3" DisplayName="Pie Chart New Cases" FilePath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-P2\Case Data Services\CountyDataByState.xlsx" sap:VirtualizedContainerService.HintSize="552.666666666667,72" sap2010:WorkflowViewState.IdRef="PieChart_4" ImageCopy="C:\Users\nfh22\OneDrive\Desktop\TeamPi-P2\Case Data Services\NewCasesCounty.jpeg" LegendRange="[&quot;B3:B&quot;+(rows-2).tostring]" SheetName="Sheet1">
       <bec:PieChart.Options>
         <bec:ShowOptions AutoText="True" DataLabelsType="ShowPercent" HasLeaderLines="False" LegendKey="ShowLabel" Separator="" ShowBubbleSize="False" ShowCategoryName="True" ShowLegend="True" ShowPercentage="False" ShowSeriesName="False" ShowValue="False" />
       </bec:PieChart.Options>
@@ -191,7 +223,7 @@
         <bec:ChartSize Height="250" Left="50" Top="50" Width="250" />
       </bec:PieChart.Size>
     </bec:PieChart>
-    <bec:PieChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" ImageCopy="{x:Null}" ModifyPassword="{x:Null}" CellRange="$A$3:$A$256,$C$3:$C$256" ChartTitle="New Deaths" ChartType="Pie" ContinueOnError="False" Delay="3" DisplayName="Pie Chart New Deaths" FilePath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-P2\Case Data Services\CountyDataByState.xlsx" sap:VirtualizedContainerService.HintSize="476,72" sap2010:WorkflowViewState.IdRef="PieChart_7" LegendRange="$C$3:$C$256" SheetName="Sheet1">
+    <bec:PieChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" CellRange="[&quot;A3:A&quot;+(rows-1).tostring+&quot;,C3:&quot;+(rows-1).ToString]" ChartTitle="New Deaths" ChartType="Pie" ContinueOnError="False" Delay="3" DisplayName="Pie Chart New Deaths" FilePath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-P2\Case Data Services\CountyDataByState.xlsx" sap:VirtualizedContainerService.HintSize="552.666666666667,72" sap2010:WorkflowViewState.IdRef="PieChart_7" ImageCopy="C:\Users\nfh22\OneDrive\Desktop\TeamPi-P2\Case Data Services\NewDeathsCounty.jpeg" LegendRange="[&quot;C3:C&quot;+(rows-1).ToString]" SheetName="Sheet1">
       <bec:PieChart.Options>
         <bec:ShowOptions AutoText="True" DataLabelsType="ShowPercent" HasLeaderLines="False" LegendKey="ShowLabel" Separator="" ShowBubbleSize="False" ShowCategoryName="True" ShowLegend="True" ShowPercentage="False" ShowSeriesName="False" ShowValue="False" />
       </bec:PieChart.Options>
