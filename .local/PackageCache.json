@@ -168,6 +168,16 @@
         "C:\\Users\\nfh22\\.nuget\\packages\\newtonsoft.json/11.0.2\\lib/net45/Newtonsoft.Json.dll",
         "C:\\Users\\nfh22\\.nuget\\packages\\uipathteam.jsondataconverter.activities/1.1.0\\lib/JsonDataConversion.dll"
       ]
+    },
+    {
+      "Package": {
+        "Id": "UiPath.Credentials.Activities",
+        "Version": "1.1.6479.13204"
+      },
+      "Assemblies": [
+        "C:\\Users\\nfh22\\.nuget\\packages\\credentialmanagement/1.0.2\\lib/net35/CredentialManagement.dll",
+        "C:\\Users\\nfh22\\.nuget\\packages\\uipath.credentials.activities/1.1.6479.13204\\lib/net40-client/UiPath.Credentials.Activities.dll"
+      ]
     }
   ],
   "Conflicts": [],
@@ -234,6 +244,11 @@
           "Item2": "[2.5.0, )"
         }
       ]
+    },
+    "CredentialManagement": {
+      "Id": "CredentialManagement",
+      "Version": "1.0.2",
+      "Dependencies": []
     },
     "CsvHelper": {
       "Id": "CsvHelper",
@@ -439,6 +454,16 @@
       "Id": "UiPath",
       "Version": "20.10.7585.27318",
       "Dependencies": []
+    },
+    "UiPath.Credentials.Activities": {
+      "Id": "UiPath.Credentials.Activities",
+      "Version": "1.1.6479.13204",
+      "Dependencies": [
+        {
+          "Item1": "CredentialManagement",
+          "Item2": "[1.0.2, )"
+        }
+      ]
     },
     "UiPath.Excel.Activities": {
       "Id": "UiPath.Excel.Activities",
