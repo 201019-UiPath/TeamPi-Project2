@@ -1,15 +1,15 @@
 {
   "name": "Covid",
-  "description": "Blank Library",
-  "main": "NewActivity.xaml",
+  "description": "Robotic Enterprise Framework",
+  "main": "Main.xaml",
   "dependencies": {
-    "BalaReva.Excel.Activities": "2020.3.0",
-    "UiPath.Excel.Activities": "2.7.2",
-    "UiPath.Mail.Activities": "1.7.2",
-    "UiPath.System.Activities": "19.10.1",
-    "UiPath.UIAutomation.Activities": "19.11.3",
-    "UiPath.WebAPI.Activities": "1.6.0",
-    "UiPathTeam.JsonDataConverter.Activities": "1.1.0"
+    "BalaReva.Excel.Activities": "[2020.3.0]",
+    "UiPath.Excel.Activities": "[2.7.2]",
+    "UiPath.Mail.Activities": "[1.9.3]",
+    "UiPath.System.Activities": "[19.10.1]",
+    "UiPath.UIAutomation.Activities": "[20.10.6]",
+    "UiPath.WebAPI.Activities": "[1.6.0]",
+    "UiPathTeam.JsonDataConverter.Activities": "[1.1.0]"
   },
   "webServices": [],
   "schemaVersion": "4.0",
@@ -28,7 +28,7 @@
   },
   "designOptions": {
     "projectProfile": "Developement",
-    "outputType": "Library",
+    "outputType": "Process",
     "libraryOptions": {
       "includeOriginalXaml": false,
       "privateWorkflows": []
