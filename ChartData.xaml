@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>664,696</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>654,736</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Charts_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -65,7 +65,7 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="Charts" sap:VirtualizedContainerService.HintSize="644,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart DisplayName="Chart_Data" sap:VirtualizedContainerService.HintSize="634,636" sap2010:WorkflowViewState.IdRef="Flowchart_2">
     <Flowchart.Variables>
       <Variable x:TypeArguments="s:String[]" Default="[{&quot;California&quot;,&quot;Florida&quot;,&quot;Massachusetts&quot;,&quot;New Jersey&quot;,&quot;New York&quot;,&quot;Ohio&quot;,&quot;Pennsylvania&quot;,&quot;South Carolina&quot;,&quot;Texas&quot;,&quot;Washington&quot;}]" Name="CountyAvailable" />
     </Flowchart.Variables>
@@ -74,33 +74,32 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
         <av:Size x:Key="ShapeSize">60,74.6666666666667</av:Size>
-        <av:PointCollection x:Key="ConnectorLocation">300,77.1666666666667 300,96.6666666666667</av:PointCollection>
-        <x:Double x:Key="Width">610</x:Double>
+        <av:PointCollection x:Key="ConnectorLocation">300,77.1666666666667 300,126.666666666667</av:PointCollection>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
       <x:Reference>__ReferenceID2</x:Reference>
     </Flowchart.StartNode>
-    <FlowDecision x:Name="__ReferenceID2" Condition="[CountyAvailable.Contains(in_State)]" DisplayName="State has county data" sap:VirtualizedContainerService.HintSize="119.333333333333,86.6666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+    <FlowDecision x:Name="__ReferenceID2" Condition="[CountyAvailable.Contains(in_State)]" DisplayName="State has county data" sap:VirtualizedContainerService.HintSize="119.333333333333,86.6666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          <av:Point x:Key="ShapeLocation">240.333333333333,96.6666666666667</av:Point>
+          <av:Point x:Key="ShapeLocation">240.333333333333,126.666666666667</av:Point>
           <av:Size x:Key="ShapeSize">119.333333333333,86.6666666666667</av:Size>
-          <av:PointCollection x:Key="FalseConnector">359.666666666667,140 370,140 370,315.333333333333</av:PointCollection>
-          <av:PointCollection x:Key="TrueConnector">240.333333333333,140 130,140 130,195.333333333333</av:PointCollection>
+          <av:PointCollection x:Key="TrueConnector">240.333333333333,170 130,170 130,245.333333333333</av:PointCollection>
+          <av:PointCollection x:Key="FalseConnector">359.666666666667,170 420,170 420,315.333333333333</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <FlowDecision.True>
         <FlowStep x:Name="__ReferenceID1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <av:Point x:Key="ShapeLocation">30,195.333333333333</av:Point>
+              <av:Point x:Key="ShapeLocation">30,245.333333333333</av:Point>
               <av:Size x:Key="ShapeSize">200,69.3333333333333</av:Size>
-              <av:PointCollection x:Key="ConnectorLocation">130,264.666666666667 130,350 270,350</av:PointCollection>
+              <av:PointCollection x:Key="ConnectorLocation">130,314.666666666667 130,350 320,350</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Chart County data" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Chart County data" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Int32" Name="rows" />
             </Sequence.Variables>
@@ -109,25 +108,26 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetCountyData workflow" sap:VirtualizedContainerService.HintSize="552.666666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Framework\Get Transaction Details\GetCountyData.xaml">
+            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetCountyData workflow" sap:VirtualizedContainerService.HintSize="604.666666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Framework\GetTransactionDetails\GetCountyData.xaml">
               <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_State" />
                 <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_StateByCounty" />
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
-            <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="552.666666666667,349.333333333333" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" WorkbookPath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-P2\Case Data Services\CountyDataByState.xlsx">
+            <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="604.666666666667,349.333333333333" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" WorkbookPath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-CovidFinal\TeamPi\Data\Output\CountyDataByState.xlsx">
               <ui:ExcelApplicationScope.Body>
                 <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,240.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,240.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:ExcelDeleteRange DisplayName="Delete Range" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="ExcelDeleteRange_1" Range="A:C" SheetName="Sheet1" ShiftCells="False" ShiftOption="EntireColumn" />
-                    <ui:ExcelWriteRange AddHeaders="True" DataTable="[out_StateByCounty]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_1" SheetName="Sheet1">
+                    <ui:ExcelDeleteRange DisplayName="Delete Range" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="ExcelDeleteRange_2" Range="A:C" SheetName="Sheet1" ShiftCells="False" ShiftOption="EntireColumn" />
+                    <ui:ExcelWriteRange AddHeaders="True" DataTable="[out_StateByCounty]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_3" SheetName="Sheet1">
                       <ui:ExcelWriteRange.StartingCell>
                         <InArgument x:TypeArguments="x:String">
                           <Literal x:TypeArguments="x:String" Value="" />
@@ -138,7 +138,7 @@
                 </ActivityAction>
               </ui:ExcelApplicationScope.Body>
             </ui:ExcelApplicationScope>
-            <Assign sap:VirtualizedContainerService.HintSize="552.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign sap:VirtualizedContainerService.HintSize="604.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_2">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:Int32">[rows]</OutArgument>
               </Assign.To>
@@ -146,7 +146,7 @@
                 <InArgument x:TypeArguments="x:Int32">[out_StateByCounty.rows.count]</InArgument>
               </Assign.Value>
             </Assign>
-            <bec:PieChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" CellRange="[&quot;A3:B&quot;+(rows-1).ToString]" ChartTitle="New Cases" ChartType="Pie" ContinueOnError="False" Delay="3" DisplayName="Pie Chart New Cases" FilePath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-P2\Case Data Services\CountyDataByState.xlsx" sap:VirtualizedContainerService.HintSize="552.666666666667,72" sap2010:WorkflowViewState.IdRef="PieChart_1" ImageCopy="C:\Users\nfh22\OneDrive\Desktop\TeamPi-P2\Case Data Services\NewCasesCounty.jpeg" LegendRange="[&quot;B3:B&quot;+(rows-2).tostring]" SheetName="Sheet1">
+            <bec:PieChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" CellRange="[&quot;A3:B&quot;+(rows-1).ToString]" ChartTitle="New Cases" ChartType="Pie" ContinueOnError="False" Delay="3" DisplayName="Pie Chart New Cases" FilePath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-CovidFinal\TeamPi\Data\Output\CountyDataByState.xlsx" sap:VirtualizedContainerService.HintSize="604.666666666667,72" sap2010:WorkflowViewState.IdRef="PieChart_3" ImageCopy="C:\Users\nfh22\OneDrive\Desktop\TeamPi-CovidFinal\TeamPi\Data\Output\NewCases.jpeg" LegendRange="[&quot;B3:B&quot;+(rows-2).tostring]" SheetName="Sheet1">
               <bec:PieChart.Options>
                 <bec:ShowOptions AutoText="True" DataLabelsType="ShowPercent" HasLeaderLines="False" LegendKey="ShowLabel" Separator="" ShowBubbleSize="False" ShowCategoryName="True" ShowLegend="True" ShowPercentage="False" ShowSeriesName="False" ShowValue="False" />
               </bec:PieChart.Options>
@@ -154,7 +154,7 @@
                 <bec:ChartSize Height="250" Left="50" Top="50" Width="250" />
               </bec:PieChart.Size>
             </bec:PieChart>
-            <bec:PieChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" CellRange="[&quot;A3:A&quot;+(rows-1).tostring+&quot;,C3:&quot;+(rows-1).ToString]" ChartTitle="New Deaths" ChartType="Pie" ContinueOnError="False" Delay="3" DisplayName="Pie Chart New Deaths" FilePath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-P2\Case Data Services\CountyDataByState.xlsx" sap:VirtualizedContainerService.HintSize="552.666666666667,72" sap2010:WorkflowViewState.IdRef="PieChart_2" ImageCopy="C:\Users\nfh22\OneDrive\Desktop\TeamPi-P2\Case Data Services\NewDeathsCounty.jpeg" LegendRange="[&quot;C3:C&quot;+(rows-1).ToString]" SheetName="Sheet1">
+            <bec:PieChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" CellRange="[&quot;A3:A&quot;+(rows-1).tostring+&quot;,C3:&quot;+(rows-1).ToString]" ChartTitle="New Deaths" ChartType="Pie" ContinueOnError="False" Delay="3" DisplayName="Pie Chart New Deaths" FilePath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-CovidFinal\TeamPi\Data\Output\CountyDataByState.xlsx" sap:VirtualizedContainerService.HintSize="604.666666666667,72" sap2010:WorkflowViewState.IdRef="PieChart_4" ImageCopy="C:\Users\nfh22\OneDrive\Desktop\TeamPi-CovidFinal\TeamPi\Data\Output\NewDeaths.jpeg" LegendRange="[&quot;C3:C&quot;+(rows-1).ToString]" SheetName="Sheet1">
               <bec:PieChart.Options>
                 <bec:ShowOptions AutoText="True" DataLabelsType="ShowPercent" HasLeaderLines="False" LegendKey="ShowLabel" Separator="" ShowBubbleSize="False" ShowCategoryName="True" ShowLegend="True" ShowPercentage="False" ShowSeriesName="False" ShowValue="False" />
               </bec:PieChart.Options>
@@ -167,40 +167,40 @@
             <FlowStep x:Name="__ReferenceID0">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <av:Point x:Key="ShapeLocation">270,315.333333333333</av:Point>
+                  <av:Point x:Key="ShapeLocation">320,315.333333333333</av:Point>
                   <av:Size x:Key="ShapeSize">200,69.3333333333333</av:Size>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence DisplayName="Chart State data" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <Sequence DisplayName="Chart State Data" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_8">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetStateData workflow" sap:VirtualizedContainerService.HintSize="444,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Framework\Get Transaction Details\GetStateData.xaml">
+                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetStateData workflow" sap:VirtualizedContainerService.HintSize="554,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Framework\GetTransactionDetails\GetStateData.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
+                    <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_CDCData" />
                     <InArgument x:TypeArguments="x:String" x:Key="in_State" />
-                    <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_CDCdata" />
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
-                <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="444,287.333333333333" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" WorkbookPath="CDC_data.xlsx">
+                <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="554,287.333333333333" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_4" WorkbookPath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-CovidFinal\TeamPi\Data\Output\StateData.xlsx">
                   <ui:ExcelApplicationScope.Body>
                     <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
                       </ActivityAction.Argument>
-                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,178.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,178.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_7">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:ExcelWriteRange AddHeaders="True" DataTable="[out_CDCdata]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_2" SheetName="Sheet1" StartingCell="A1" />
+                        <ui:ExcelWriteRange AddHeaders="True" DataTable="[out_CDCData]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_4" SheetName="Sheet1" StartingCell="A1" />
                       </Sequence>
                     </ActivityAction>
                   </ui:ExcelApplicationScope.Body>
                 </ui:ExcelApplicationScope>
-                <bec:ColumnChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" CellRange="A2:B8" ChartTitle="Cases over past week" ChartType="ColumnClustered" ContinueOnError="False" Delay="3" DisplayName="Column Chart" FilePath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-P2\Case Data Services\CDC_data.xlsx" sap:VirtualizedContainerService.HintSize="444,72" sap2010:WorkflowViewState.IdRef="ColumnChart_1" ImageCopy="C:\Users\nfh22\OneDrive\Desktop\TeamPi-P2\Case Data Services\NewCasesState.jpeg" LegendRange="B1:B8" SheetName="Sheet1" ShowLegendKey="True" ShowValuePosition="OutsideEnd" ShowValueTextOrientation="Horizontal">
+                <bec:ColumnChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" CellRange="A2:B8" ChartTitle="Cases over past week" ChartType="ColumnClustered" ContinueOnError="False" Delay="3" DisplayName="Column Chart Cases over past week" FilePath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-CovidFinal\TeamPi\Data\Output\StateData.xlsx" sap:VirtualizedContainerService.HintSize="554,72" sap2010:WorkflowViewState.IdRef="ColumnChart_3" ImageCopy="C:\Users\nfh22\OneDrive\Desktop\TeamPi-P2\Case Data Services\NewCasesState.jpeg" LegendRange="B1:B8" SheetName="Sheet1" ShowLegendKey="True" ShowValuePosition="OutsideEnd" ShowValueTextOrientation="Horizontal">
                   <bec:ColumnChart.Options>
                     <bec:ShowOptions AutoText="False" DataLabelsType="ShowNone" HasLeaderLines="False" LegendKey="ShowNone" Separator="" ShowBubbleSize="False" ShowCategoryName="False" ShowLegend="False" ShowPercentage="False" ShowSeriesName="False" ShowValue="False" />
                   </bec:ColumnChart.Options>
@@ -208,7 +208,7 @@
                     <bec:ChartSize Height="250" Left="50" Top="50" Width="250" />
                   </bec:ColumnChart.Size>
                 </bec:ColumnChart>
-                <bec:ColumnChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" CellRange="C2:C8" ChartTitle="Deaths over past week" ChartType="ColumnClustered" ContinueOnError="False" Delay="3" DisplayName="Column Chart" FilePath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-P2\Case Data Services\CDC_data.xlsx" sap:VirtualizedContainerService.HintSize="444,72" sap2010:WorkflowViewState.IdRef="ColumnChart_2" ImageCopy="C:\Users\nfh22\OneDrive\Desktop\TeamPi-P2\Case Data Services\NewDeathsState.jpeg" LegendRange="C2:C8" SheetName="Sheet1" ShowLegendKey="True" ShowValuePosition="OutsideEnd" ShowValueTextOrientation="Horizontal">
+                <bec:ColumnChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" CellRange="C2:C8" ChartTitle="Deaths over past week" ChartType="ColumnClustered" ContinueOnError="False" Delay="3" DisplayName="Column Chart" FilePath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-CovidFinal\TeamPi\Data\Output\StateData.xlsx" sap:VirtualizedContainerService.HintSize="554,72" sap2010:WorkflowViewState.IdRef="ColumnChart_4" ImageCopy="C:\Users\nfh22\OneDrive\Desktop\TeamPi-CovidFinal\TeamPi\Data\Output\NewDeathsState.xlsx" LegendRange="C2:C8" SheetName="Sheet1" ShowLegendKey="True" ShowValuePosition="OutsideEnd" ShowValueTextOrientation="Horizontal">
                   <bec:ColumnChart.Options>
                     <bec:ShowOptions AutoText="False" DataLabelsType="ShowNone" HasLeaderLines="False" LegendKey="ShowNone" Separator="" ShowBubbleSize="False" ShowCategoryName="False" ShowLegend="False" ShowPercentage="False" ShowSeriesName="False" ShowValue="False" />
                   </bec:ColumnChart.Options>
