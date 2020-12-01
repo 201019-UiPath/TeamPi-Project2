@@ -113,7 +113,7 @@
         </ui:HttpClient.UrlSegments>
       </ui:HttpClient>
       <j:JsonToDataTable InputJsonFilePath="{x:Null}" DisplayName="Json to data table" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="JsonToDataTable_1" InputJsonString="[Json]" OutputDataTable="[in_CDCDataCases]" />
-      <ui:FilterDataTable DataTable="[CDCData]" DisplayName="Filter Data Table State cases only" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[in_CDCDataCases]" SelectColumnsMode="Keep">
+      <ui:FilterDataTable DataTable="[CDCData]" DisplayName="Filter Data Table State cases only" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" OutputDataTable="[in_CDCDataCases]" SelectColumnsMode="Keep">
         <ui:FilterDataTable.Filters>
           <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
             <ui:FilterOperationArgument Column="{x:Null}" Operand="{x:Null}" BooleanOperator="And" Operator="LT" />
@@ -126,7 +126,7 @@
           </scg:List>
         </ui:FilterDataTable.SelectColumns>
       </ui:FilterDataTable>
-      <ui:FilterDataTable DataTable="[CDCData]" DisplayName="Filter Data Table State deaths only" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[in_CDCDataDeaths]" SelectColumnsMode="Keep">
+      <ui:FilterDataTable DataTable="[CDCData]" DisplayName="Filter Data Table State deaths only" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" OutputDataTable="[in_CDCDataDeaths]" SelectColumnsMode="Keep">
         <ui:FilterDataTable.Filters>
           <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
             <ui:FilterOperationArgument Column="{x:Null}" Operand="{x:Null}" BooleanOperator="And" Operator="LT" />
