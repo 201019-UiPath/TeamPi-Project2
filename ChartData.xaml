@@ -110,11 +110,16 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetCountyData workflow" sap:VirtualizedContainerService.HintSize="604.666666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Framework\Get Transaction Details\GetCountyData.xaml">
+            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetCountyDataCases workflow" sap:VirtualizedContainerService.HintSize="604.666666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Framework/Get Transaction Details/GetCountyDataCases.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="x:String" x:Key="in_State" />
                 <InArgument x:TypeArguments="sd:DataTable" x:Key="in_CountyDataCases" />
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetCountyDataDeaths workflow" sap:VirtualizedContainerService.HintSize="604.666666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="Framework\Get Transaction Details\GetCountyDataDeaths.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="sd:DataTable" x:Key="in_CountyDataDeaths" />
+                <InArgument x:TypeArguments="x:String" x:Key="in_State" />
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
             <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="604.666666666667,722" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" WorkbookPath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-CovidFinal\TeamPi\Data\Output\CountyDataByState.xlsx">
@@ -200,7 +205,7 @@
                   <InArgument x:TypeArguments="x:Int32">[in_CountyDataCases.rows.count]</InArgument>
                 </Assign.Value>
               </Assign>
-              <bec:PieChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" CellRange="[&quot;A3:A&quot;+(rows-1).tostring+&quot;,C3:&quot;+(rows-1).ToString]" ChartTitle="New Deaths" ChartType="Pie" ContinueOnError="False" Delay="3" DisplayName="Pie Chart New Deaths" FilePath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-CovidFinal\TeamPi\Data\Output\CountyDataByState.xlsx" sap:VirtualizedContainerService.HintSize="444,72" sap2010:WorkflowViewState.IdRef="PieChart_4" ImageCopy="C:\Users\nfh22\OneDrive\Desktop\TeamPi-CovidFinal\TeamPi\Data\Output\NewDeaths.jpeg" LegendRange="[&quot;C3:C&quot;+(rows-1).ToString]" SheetName="Sheet1">
+              <bec:PieChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" CellRange="[&quot;A3:A&quot;+(rows-1).tostring+&quot;,C3:&quot;+(rows-1).ToString]" ChartTitle="New Deaths" ChartType="Pie" ContinueOnError="False" Delay="3" DisplayName="Pie Chart New Deaths" FilePath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-CovidFinal\TeamPi\Data\Output\CountyDataByState.xlsx" sap:VirtualizedContainerService.HintSize="444,72" sap2010:WorkflowViewState.IdRef="PieChart_4" ImageCopy="C:\Users\nfh22\OneDrive\Desktop\TeamPi-CovidFinal\TeamPi\Data\Output\NewDeaths.jpeg" LegendRange="[&quot;C3:C&quot;+(rows-1).ToString]" SheetName="Sheet2">
                 <bec:PieChart.Options>
                   <bec:ShowOptions AutoText="True" DataLabelsType="ShowPercent" HasLeaderLines="False" LegendKey="ShowLabel" Separator="" ShowBubbleSize="False" ShowCategoryName="True" ShowLegend="True" ShowPercentage="False" ShowSeriesName="False" ShowValue="False" />
                 </bec:PieChart.Options>
@@ -224,7 +229,7 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetStateData workflow" sap:VirtualizedContainerService.HintSize="596,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Framework\Get Transaction Details\GetStateData.xaml">
+                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetStateData workflow" sap:VirtualizedContainerService.HintSize="596,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Framework/Get Transaction Details/GetStateData.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
                     <InArgument x:TypeArguments="x:String" x:Key="in_State" />
                     <InArgument x:TypeArguments="sd:DataTable" x:Key="in_CDCDataCases" />

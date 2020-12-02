@@ -39,7 +39,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="16">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="32">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -56,6 +56,12 @@
       <AssemblyReference>System.Xaml</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="GetStateDataCases" sap:VirtualizedContainerService.HintSize="418,669.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -113,7 +119,7 @@
         </ui:HttpClient.UrlSegments>
       </ui:HttpClient>
       <j:JsonToDataTable InputJsonFilePath="{x:Null}" DisplayName="Json to data table" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="JsonToDataTable_1" InputJsonString="[Json]" OutputDataTable="[in_CDCDataCases]" />
-      <ui:FilterDataTable DataTable="[CDCData]" DisplayName="Filter Data Table State cases only" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" OutputDataTable="[in_CDCDataCases]" SelectColumnsMode="Keep">
+      <ui:FilterDataTable DataTable="[CDCData]" DisplayName="Filter Data Table State cases only" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[in_CDCDataCases]" SelectColumnsMode="Keep">
         <ui:FilterDataTable.Filters>
           <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
             <ui:FilterOperationArgument Column="{x:Null}" Operand="{x:Null}" BooleanOperator="And" Operator="LT" />
@@ -121,12 +127,12 @@
         </ui:FilterDataTable.Filters>
         <ui:FilterDataTable.SelectColumns>
           <scg:List x:TypeArguments="InArgument" Capacity="4">
-            <InArgument x:TypeArguments="x:String">[CDCData(0).tostring]</InArgument>
-            <InArgument x:TypeArguments="x:String">[CDCData(5).tostring]</InArgument>
+            <InArgument x:TypeArguments="x:String">["submission_date"]</InArgument>
+            <InArgument x:TypeArguments="x:String">["new_case"]</InArgument>
           </scg:List>
         </ui:FilterDataTable.SelectColumns>
       </ui:FilterDataTable>
-      <ui:FilterDataTable DataTable="[CDCData]" DisplayName="Filter Data Table State deaths only" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" OutputDataTable="[in_CDCDataDeaths]" SelectColumnsMode="Keep">
+      <ui:FilterDataTable DataTable="[CDCData]" DisplayName="Filter Data Table State deaths only" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[in_CDCDataDeaths]" SelectColumnsMode="Keep">
         <ui:FilterDataTable.Filters>
           <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
             <ui:FilterOperationArgument Column="{x:Null}" Operand="{x:Null}" BooleanOperator="And" Operator="LT" />
@@ -134,8 +140,8 @@
         </ui:FilterDataTable.Filters>
         <ui:FilterDataTable.SelectColumns>
           <scg:List x:TypeArguments="InArgument" Capacity="4">
-            <InArgument x:TypeArguments="x:String">[CDCData(0).tostring]</InArgument>
-            <InArgument x:TypeArguments="x:String">[CDCData(10).tostring]</InArgument>
+            <InArgument x:TypeArguments="x:String">["submission_date"]</InArgument>
+            <InArgument x:TypeArguments="x:String">["new_death"]</InArgument>
           </scg:List>
         </ui:FilterDataTable.SelectColumns>
       </ui:FilterDataTable>
