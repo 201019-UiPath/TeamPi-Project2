@@ -204,7 +204,7 @@
                       </Sequence>
                     </If.Then>
                   </If>
-                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetStateData workflow" sap:VirtualizedContainerService.HintSize="566,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="Framework/Get Transaction Details/GetStateData.xaml">
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetStateData workflow" sap:VirtualizedContainerService.HintSize="566,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="Framework/Get Transaction Details/GetStateDataDeaths.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="x:String" x:Key="in_State" />
                       <InArgument x:TypeArguments="sd:DataTable" x:Key="in_CDCDataCases" />
