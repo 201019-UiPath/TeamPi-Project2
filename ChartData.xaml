@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>654,736</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>654,696</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Charts_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -101,7 +101,7 @@
               <av:PointCollection x:Key="ConnectorLocation">130,314.666666666667 130,350 320,350</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Chart County data" sap:VirtualizedContainerService.HintSize="646.666666666667,2104" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <Sequence DisplayName="Chart County data" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Int32" Name="rows" />
             </Sequence.Variables>
@@ -153,7 +153,7 @@
                 </ActivityAction>
               </ui:ExcelApplicationScope.Body>
             </ui:ExcelApplicationScope>
-            <Sequence DisplayName="Chart county cases" sap:VirtualizedContainerService.HintSize="604.666666666667,378" sap2010:WorkflowViewState.IdRef="Sequence_17">
+            <Sequence DisplayName="Chart county cases" sap:VirtualizedContainerService.HintSize="604.666666666667,266" sap2010:WorkflowViewState.IdRef="Sequence_17">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -167,8 +167,7 @@
                   <InArgument x:TypeArguments="x:Int32">[in_CountyDataCases.rows.count]</InArgument>
                 </Assign.Value>
               </Assign>
-              <bes:ChangeCellType ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" Cell="A2:A8" CellFormat="m/d/yyyy" ContinueOnError="False" Delay="3" DisplayName="Change Cell Type to get rid of timestamp and leave just date" FilePath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-CovidFinal\TeamPi\Data\Output\CountyDataByState.xlsx" sap:VirtualizedContainerService.HintSize="444,72" sap2010:WorkflowViewState.IdRef="ChangeCellType_1" SheetName="Sheet1" />
-              <bec:PieChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" CellRange="[&quot;A3:A&quot;+(rows-1).tostring+&quot;,C3:&quot;+(rows-1).ToString]" ChartTitle="New Cases" ChartType="Pie" ContinueOnError="False" Delay="3" DisplayName="Pie Chart New Cases" FilePath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-CovidFinal\TeamPi\Data\Output\CountyDataByState.xlsx" sap:VirtualizedContainerService.HintSize="444,72" sap2010:WorkflowViewState.IdRef="PieChart_5" ImageCopy="C:\Users\nfh22\OneDrive\Desktop\TeamPi-CovidFinal\TeamPi\Data\Output\NewDeaths.jpeg" LegendRange="[&quot;C3:C&quot;+(rows-1).ToString]" SheetName="Sheet1">
+              <bec:PieChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" LegendRange="{x:Null}" ModifyPassword="{x:Null}" CellRange="[&quot;A3:B&quot;+(rows-1).ToString]" ChartTitle="New Cases" ChartType="PieExploded" ContinueOnError="True" Delay="3" DisplayName="Pie Chart New Cases" FilePath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-CovidFinal\TeamPi\Data\Output\CountyDataByState.xlsx" sap:VirtualizedContainerService.HintSize="444,72" sap2010:WorkflowViewState.IdRef="PieChart_5" ImageCopy="C:\Users\nfh22\OneDrive\Desktop\TeamPi-CovidFinal\TeamPi\Data\Output\NewDeaths.jpeg" SheetName="Sheet1">
                 <bec:PieChart.Options>
                   <bec:ShowOptions AutoText="False" DataLabelsType="ShowPercent" HasLeaderLines="False" LegendKey="ShowLabel" Separator="" ShowBubbleSize="False" ShowCategoryName="False" ShowLegend="True" ShowPercentage="False" ShowSeriesName="False" ShowValue="False" />
                 </bec:PieChart.Options>
@@ -208,7 +207,7 @@
                 </ActivityAction>
               </ui:ExcelApplicationScope.Body>
             </ui:ExcelApplicationScope>
-            <Sequence DisplayName="Chart county deaths" sap:VirtualizedContainerService.HintSize="604.666666666667,378" sap2010:WorkflowViewState.IdRef="Sequence_11">
+            <Sequence DisplayName="Chart county deaths" sap:VirtualizedContainerService.HintSize="604.666666666667,266" sap2010:WorkflowViewState.IdRef="Sequence_11">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -222,8 +221,7 @@
                   <InArgument x:TypeArguments="x:Int32">[in_CountyDataDeaths.rows.count]</InArgument>
                 </Assign.Value>
               </Assign>
-              <bes:ChangeCellType ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" Cell="A2:A8" CellFormat="m/d/yyyy" ContinueOnError="False" Delay="3" DisplayName="Change Cell Type to get rid of timestamp and leave just date" FilePath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-CovidFinal\TeamPi\Data\Output\CountyDataByState.xlsx" sap:VirtualizedContainerService.HintSize="444,72" sap2010:WorkflowViewState.IdRef="ChangeCellType_2" SheetName="Sheet2" />
-              <bec:PieChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" CellRange="[&quot;A3:A&quot;+(rows-1).tostring+&quot;,C3:&quot;+(rows-1).ToString]" ChartTitle="New Deaths" ChartType="Pie" ContinueOnError="False" Delay="3" DisplayName="Pie Chart New Deaths" FilePath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-CovidFinal\TeamPi\Data\Output\CountyDataByState.xlsx" sap:VirtualizedContainerService.HintSize="444,72" sap2010:WorkflowViewState.IdRef="PieChart_4" ImageCopy="C:\Users\nfh22\OneDrive\Desktop\TeamPi-CovidFinal\TeamPi\Data\Output\NewDeaths.jpeg" LegendRange="[&quot;C3:C&quot;+(rows-1).ToString]" SheetName="Sheet2">
+              <bec:PieChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" LegendRange="{x:Null}" ModifyPassword="{x:Null}" CellRange="[&quot;A3:B&quot;+(rows-1).ToString]" ChartTitle="New Deaths" ChartType="PieExploded" ContinueOnError="False" Delay="3" DisplayName="Pie Chart New Deaths" FilePath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-CovidFinal\TeamPi\Data\Output\CountyDataByState.xlsx" sap:VirtualizedContainerService.HintSize="444,72" sap2010:WorkflowViewState.IdRef="PieChart_4" ImageCopy="C:\Users\nfh22\OneDrive\Desktop\TeamPi-CovidFinal\TeamPi\Data\Output\NewDeaths.jpeg" SheetName="Sheet2">
                 <bec:PieChart.Options>
                   <bec:ShowOptions AutoText="False" DataLabelsType="ShowPercent" HasLeaderLines="False" LegendKey="ShowLabel" Separator="" ShowBubbleSize="False" ShowCategoryName="False" ShowLegend="True" ShowPercentage="False" ShowSeriesName="False" ShowValue="False" />
                 </bec:PieChart.Options>
@@ -241,7 +239,7 @@
                   <av:Size x:Key="ShapeSize">200,69.3333333333333</av:Size>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence DisplayName="Chart State Data" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_8">
+              <Sequence DisplayName="Chart State Data" sap:VirtualizedContainerService.HintSize="638,1465.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_8">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -250,11 +248,10 @@
                 <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetStateData workflow" sap:VirtualizedContainerService.HintSize="596,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Framework/Get Transaction Details/GetStateDataDeaths.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
                     <InArgument x:TypeArguments="x:String" x:Key="in_State" />
-                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_CDCDataCases" />
-                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_CDCDataDeaths" />
+                    <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_CDCDataDeaths" />
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
-                <Sequence DisplayName="Chart State cases" sap:VirtualizedContainerService.HintSize="596,491.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                <Sequence DisplayName="Chart State cases" sap:VirtualizedContainerService.HintSize="596,603.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_12">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -277,7 +274,8 @@
                       </ActivityAction>
                     </ui:ExcelApplicationScope.Body>
                   </ui:ExcelApplicationScope>
-                  <bec:ColumnChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" CellRange="A2:B8" ChartTitle="Cases over past week" ChartType="ColumnClustered" ContinueOnError="False" Delay="3" DisplayName="Column Chart Cases over past week" FilePath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-CovidFinal\TeamPi\Data\Output\StateData.xlsx" sap:VirtualizedContainerService.HintSize="554,72" sap2010:WorkflowViewState.IdRef="ColumnChart_3" ImageCopy="C:\Users\nfh22\OneDrive\Desktop\TeamPi-P2\Case Data Services\NewCasesState.jpeg" LegendRange="B1:B8" SheetName="Sheet1" ShowLegendKey="True" ShowValuePosition="OutsideEnd" ShowValueTextOrientation="Horizontal">
+                  <bes:ChangeCellType ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" Cell="A2:A8" CellFormat="m/d" ContinueOnError="False" Delay="3" DisplayName="Change Cell Type to get rid of timestamp and leave just date" FilePath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-CovidFinal\TeamPi\Data\Output\StateData.xlsx" sap:VirtualizedContainerService.HintSize="554,72" sap2010:WorkflowViewState.IdRef="ChangeCellType_3" SheetName="Sheet1" />
+                  <bec:ColumnChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" CellRange="$A$2:$B$8" ChartTitle="Cases over past week" ChartType="ColumnClustered" ContinueOnError="False" Delay="3" DisplayName="Column Chart Cases over past week" FilePath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-CovidFinal\TeamPi\Data\Output\StateData.xlsx" sap:VirtualizedContainerService.HintSize="554,72" sap2010:WorkflowViewState.IdRef="ColumnChart_3" ImageCopy="C:\Users\nfh22\OneDrive\Desktop\TeamPi-P2\Case Data Services\NewCasesState.jpeg" LegendRange="$B$1:$B$8" SheetName="Sheet1" ShowLegendKey="True" ShowValuePosition="OutsideEnd" ShowValueTextOrientation="Horizontal">
                     <bec:ColumnChart.Options>
                       <bec:ShowOptions AutoText="False" DataLabelsType="ShowNone" HasLeaderLines="False" LegendKey="ShowNone" Separator="" ShowBubbleSize="False" ShowCategoryName="False" ShowLegend="False" ShowPercentage="False" ShowSeriesName="False" ShowValue="False" />
                     </bec:ColumnChart.Options>
@@ -286,7 +284,7 @@
                     </bec:ColumnChart.Size>
                   </bec:ColumnChart>
                 </Sequence>
-                <Sequence DisplayName="Chart State deaths" sap:VirtualizedContainerService.HintSize="596,491.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                <Sequence DisplayName="Chart State deaths" sap:VirtualizedContainerService.HintSize="596,603.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_14">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -309,7 +307,8 @@
                       </ActivityAction>
                     </ui:ExcelApplicationScope.Body>
                   </ui:ExcelApplicationScope>
-                  <bec:ColumnChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" CellRange="A2:B8" ChartTitle="Cases over past week" ChartType="ColumnClustered" ContinueOnError="False" Delay="3" DisplayName="Column Chart Cases over past week" FilePath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-CovidFinal\TeamPi\Data\Output\StateData.xlsx" sap:VirtualizedContainerService.HintSize="554,72" sap2010:WorkflowViewState.IdRef="ColumnChart_5" ImageCopy="C:\Users\nfh22\OneDrive\Desktop\TeamPi-P2\Case Data Services\NewCasesState.jpeg" LegendRange="B1:B8" SheetName="Sheet1" ShowLegendKey="True" ShowValuePosition="OutsideEnd" ShowValueTextOrientation="Horizontal">
+                  <bes:ChangeCellType ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" Cell="A2:A8" CellFormat="m/d" ContinueOnError="False" Delay="3" DisplayName="Change Cell Type to get rid of timestamp and leave just date" FilePath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-CovidFinal\TeamPi\Data\Output\StateData.xlsx" sap:VirtualizedContainerService.HintSize="554,72" sap2010:WorkflowViewState.IdRef="ChangeCellType_4" SheetName="Sheet2" />
+                  <bec:ColumnChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" CellRange="$A$2:$B$8" ChartTitle="Cases over past week" ChartType="ColumnClustered" ContinueOnError="False" Delay="3" DisplayName="Column Chart Cases over past week" FilePath="C:\Users\nfh22\OneDrive\Desktop\TeamPi-CovidFinal\TeamPi\Data\Output\StateData.xlsx" sap:VirtualizedContainerService.HintSize="554,72" sap2010:WorkflowViewState.IdRef="ColumnChart_5" ImageCopy="C:\Users\nfh22\OneDrive\Desktop\TeamPi-P2\Case Data Services\NewCasesState.jpeg" LegendRange="$B$1:$B$8" SheetName="Sheet2" ShowLegendKey="True" ShowValuePosition="OutsideEnd" ShowValueTextOrientation="Horizontal">
                     <bec:ColumnChart.Options>
                       <bec:ShowOptions AutoText="False" DataLabelsType="ShowNone" HasLeaderLines="False" LegendKey="ShowNone" Separator="" ShowBubbleSize="False" ShowCategoryName="False" ShowLegend="False" ShowPercentage="False" ShowSeriesName="False" ShowValue="False" />
                     </bec:ColumnChart.Options>
