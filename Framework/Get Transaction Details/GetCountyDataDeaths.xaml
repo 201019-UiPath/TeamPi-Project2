@@ -1,12 +1,12 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="GetCountyDataDeaths" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="in_CountyDataDeaths" Type="InArgument(sd:DataTable)" />
     <x:Property Name="in_State" Type="InArgument(x:String)" />
+    <x:Property Name="out_CountyDataDeaths" Type="OutArgument(sd:DataTable)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>580,1816</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>580,1944.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetCountyDataDeaths_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -54,13 +54,14 @@
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="GetCountyDataDeaths" sap:VirtualizedContainerService.HintSize="560,1716" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Description: gets county data from worldometer if available for user state&#xD;&#xA;&#xD;&#xA;precondition: worldometer must be open and state must have data&#xD;&#xA;&#xD;&#xA;parameters: &#xD;&#xA;in_State&#xD;&#xA;out_CountyDataDeaths" DisplayName="GetCountyDataDeaths" sap:VirtualizedContainerService.HintSize="560,1844.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="CountyDataDeaths" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Sequence DisplayName="Get data from worldometer" sap:VirtualizedContainerService.HintSize="518,1120" sap2010:WorkflowViewState.IdRef="Sequence_5">
@@ -183,7 +184,7 @@
           <OutArgument x:TypeArguments="sd:DataTable">[CountyDataDeaths]</OutArgument>
         </Assign.To>
         <Assign.Value>
-          <InArgument x:TypeArguments="sd:DataTable">[in_CountyDataDeaths]</InArgument>
+          <InArgument x:TypeArguments="sd:DataTable">[out_CountyDataDeaths]</InArgument>
         </Assign.Value>
       </Assign>
     </Sequence>
