@@ -60,7 +60,6 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="Build health guide email based on HTML template populated with scraped data, attach HRSA data and constructed .XLSX file of full scraped data, send Outlook email with proper attachment" DisplayName="Send Email - Health Guide" sap:VirtualizedContainerService.HintSize="396.666666666667,2039.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_12">
@@ -168,7 +167,7 @@
         </ActivityAction>
       </ui:ForEachRow.Body>
     </ui:ForEachRow>
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[in_SolvHealthTelehealthDT.AsEnumerable.Take(5).CopyToDataTable]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="354.666666666667,306.666666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[in_SolvHealthTelehealthDT.AsEnumerable.Take(5).CopyToDataTable]" DisplayName="For Each Row - Populate Solv Health Telehealth Data" sap:VirtualizedContainerService.HintSize="354.666666666667,306.666666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
