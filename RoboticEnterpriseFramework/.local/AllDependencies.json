@@ -333,7 +333,7 @@
           "lib/net45/UiPath.OCR.Contracts.dll": {}
         }
       },
-      "UiPath.Python.Activities/1.1.7594.35963": {
+      "UiPath.Python.Activities/1.1.6863.33404": {
         "type": "package",
         "compile": {
           "lib/net452/_._": {}
@@ -346,6 +346,15 @@
           "lib/net452/UiPath.Python.dll": {}
         },
         "resource": {
+          "lib/net452/de/UiPath.Python.Activities.Design.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net452/de/UiPath.Python.Activities.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net452/de/UiPath.Python.resources.dll": {
+            "locale": "de"
+          },
           "lib/net452/fr/UiPath.Python.Activities.Design.resources.dll": {
             "locale": "fr"
           },
@@ -363,15 +372,6 @@
           },
           "lib/net452/ja/UiPath.Python.resources.dll": {
             "locale": "ja"
-          },
-          "lib/net452/ru/UiPath.Python.Activities.Design.resources.dll": {
-            "locale": "ru"
-          },
-          "lib/net452/ru/UiPath.Python.Activities.resources.dll": {
-            "locale": "ru"
-          },
-          "lib/net452/ru/UiPath.Python.resources.dll": {
-            "locale": "ru"
           }
         }
       },
@@ -1211,10 +1211,10 @@
         "uipath.ocr.contracts.nuspec"
       ]
     },
-    "UiPath.Python.Activities/1.1.7594.35963": {
-      "sha512": "riBcH28S1t6Svtrs2VZmkKcDzTB3oSYm5nSwKvvymf3nxEqTMRZ6zHdg7J+ajkWfMNTxlITuKVF5V4RPddc/DA==",
+    "UiPath.Python.Activities/1.1.6863.33404": {
+      "sha512": "I45p4opSWinCChYA1abDzGiWdtrCRtrLGHmax4+4WF24XwhywfMHgi7uo+/VhJRRrzVxoePjBZQWh+zKueFBmg==",
       "type": "package",
-      "path": "uipath.python.activities/1.1.7594.35963",
+      "path": "uipath.python.activities/1.1.6863.33404",
       "files": [
         ".nupkg.metadata",
         "lib/net452/UiPath.Python.Activities.Design.dll",
@@ -1222,15 +1222,15 @@
         "lib/net452/UiPath.Python.Host.exe",
         "lib/net452/UiPath.Python.Host32.exe",
         "lib/net452/UiPath.Python.dll",
+        "lib/net452/de/UiPath.Python.Activities.Design.resources.dll",
+        "lib/net452/de/UiPath.Python.Activities.resources.dll",
+        "lib/net452/de/UiPath.Python.resources.dll",
         "lib/net452/fr/UiPath.Python.Activities.Design.resources.dll",
         "lib/net452/fr/UiPath.Python.Activities.resources.dll",
         "lib/net452/fr/UiPath.Python.resources.dll",
         "lib/net452/ja/UiPath.Python.Activities.Design.resources.dll",
         "lib/net452/ja/UiPath.Python.Activities.resources.dll",
         "lib/net452/ja/UiPath.Python.resources.dll",
-        "lib/net452/ru/UiPath.Python.Activities.Design.resources.dll",
-        "lib/net452/ru/UiPath.Python.Activities.resources.dll",
-        "lib/net452/ru/UiPath.Python.resources.dll",
         "lib/net452/x64/Python.Runtime.35.dll",
         "lib/net452/x64/Python.Runtime.36.dll",
         "lib/net452/x86/Python.Runtime.27.dll",
@@ -1238,7 +1238,7 @@
         "lib/net452/x86/Python.Runtime.34.dll",
         "lib/net452/x86/Python.Runtime.35.dll",
         "lib/net452/x86/Python.Runtime.36.dll",
-        "uipath.python.activities.1.1.7594.35963.nupkg.sha512",
+        "uipath.python.activities.1.1.6863.33404.nupkg.sha512",
         "uipath.python.activities.nuspec"
       ]
     },
@@ -1556,7 +1556,7 @@
     "": [],
     ".NETFramework,Version=v4.6.1": [
       "UiPath.Excel.Activities >= 2.7.2 <= 2.7.2",
-      "UiPath.Python.Activities >= 1.1.7594.35963 <= 1.1.7594.35963",
+      "UiPath.Python.Activities >= 1.1.6863.33404 <= 1.1.6863.33404",
       "UiPath.System.Activities >= 19.10.1 <= 19.10.1",
       "UiPath.UIAutomation.Activities >= 19.11.3 <= 19.11.3",
       "UiPath.WebAPI.Activities >= 1.6.0 <= 1.6.0"
@@ -1584,7 +1584,7 @@
           "UiPath.Python.Activities": {
             "include": "Runtime",
             "target": "Package",
-            "version": "[1.1.7594.35963, 1.1.7594.35963]"
+            "version": "[1.1.6863.33404, 1.1.6863.33404]"
           },
           "UiPath.System.Activities": {
             "include": "Runtime",

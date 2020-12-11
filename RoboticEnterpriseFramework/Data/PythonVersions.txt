@@ -1,4 +1,4 @@
-Version of Python needed is 3.6.0
+Version of Python needed is 3.6.0 and 32 bit
 
 -----------------------------------
 
@@ -9,11 +9,13 @@ Versions of Python Libraries Needed (just need to copy+paste as is into pip inst
 	- scikit-learn==0.23.2
 	- scipy==1.5.4
 	- statsmodels==0.12.1
+	- lxml==4.6.2
+	- matplotlib==3.3.3
 
 -----------------------------------
 
 How to Install Modules with Specific Versions
-	- Start with installing Python with defaults
+	- Start with installing Python with defaults (make sure that the checkbox indicating PATH is checked)
 	- Install via pip (should come standard with Python however it may need separate install)
 	- Go into Command Prompt (right-click for menu for admin access rather than doing regular click to open)
 	- Type following into Command Prompt:

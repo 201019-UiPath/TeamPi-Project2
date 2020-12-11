@@ -1,4 +1,3 @@
-
 def PrototypeModel():
     import numpy as np
     import statsmodels.api as sm
@@ -6,7 +5,6 @@ def PrototypeModel():
     import statsmodels.formula.api as smf
     import pandas as pd
     from pathlib import Path
-
     file = Path(__file__).parent / "Output/df.xlsx"
     data = pd.read_excel(file)
     df = data.iloc[:,[0,2,4,7,8]]
@@ -25,17 +23,18 @@ def NationalModel():
     import statsmodels.formula.api as smf
     import pandas as pd
     from pathlib import Path
-
+    import matplotlib.pyplot as plt
     file = Path(__file__).parent / "Output/Nation_Covid_MLData.xlsx"
     data = pd.read_excel(file)
     ndf = data.iloc[0:22,[0,2,3,5,11,15]]
     formula = 'ndf[["hospitalizedCurrently"]]~ndf[["totalTestResults"]]+ndf[["positive"]]+ndf[["negative"]]'
     model = smf.glm(formula = formula, data = ndf, family = sm.families.Binomial())
     result = model.fit()
-    print(result.summary())
-    print(result.pvalues)
-    predictions = result.predict()
-    print(predictions)
+    plt.rc('figure', figsize=(12, 7))
+    plt.text(0.01, 0.05, str(result.summary()), {'fontsize': 10}, fontproperties = 'monospace')
+    plt.axis('off')
+    plt.tight_layout()
+    plt.savefig('Output/NationalOutput.png')
 
 def StateModel():
     import numpy as np
@@ -44,14 +43,18 @@ def StateModel():
     import statsmodels.formula.api as smf
     import pandas as pd
     from pathlib import Path
-
+    import matplotlib.pyplot as plt
     file = Path(__file__).parent / "Output/State_Covid_MLData.xlsx"
     data = pd.read_excel(file)
     sdf = data.iloc[0:22,[0,2,4,7,8]]
     formula = 'sdf[["hospitalizedCurrently"]]~sdf[["totalTestResults"]]+sdf[["positive"]]+sdf[["negative"]]'
     model = smf.glm(formula = formula, data = sdf, family = sm.families.Binomial())
     result = model.fit()
-    print(result.summary())
+    plt.rc('figure', figsize=(12, 7))
+    plt.text(0.01, 0.05, str(result.summary()), {'fontsize': 10}, fontproperties = 'monospace')
+    plt.axis('off')
+    plt.tight_layout()
+    plt.savefig('Output/StateOutput.png')
 
 def Disclaimer():
     print("This is a proof of concept so take results with a pinch of salt.")

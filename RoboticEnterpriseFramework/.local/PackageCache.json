@@ -104,19 +104,19 @@
     {
       "Package": {
         "Id": "UiPath.Python.Activities",
-        "Version": "1.1.7594.35963"
+        "Version": "1.1.6863.33404"
       },
       "Assemblies": [
-        "C:\\Users\\mannj\\.nuget\\packages\\uipath.python.activities/1.1.7594.35963\\lib/net452/UiPath.Python.Activities.Design.dll",
-        "C:\\Users\\mannj\\.nuget\\packages\\uipath.python.activities/1.1.7594.35963\\lib/net452/UiPath.Python.Activities.dll",
-        "C:\\Users\\mannj\\.nuget\\packages\\uipath.python.activities/1.1.7594.35963\\lib/net452/UiPath.Python.dll",
-        "C:\\Users\\mannj\\.nuget\\packages\\uipath.python.activities/1.1.7594.35963\\lib/net452/x64/Python.Runtime.35.dll",
-        "C:\\Users\\mannj\\.nuget\\packages\\uipath.python.activities/1.1.7594.35963\\lib/net452/x64/Python.Runtime.36.dll",
-        "C:\\Users\\mannj\\.nuget\\packages\\uipath.python.activities/1.1.7594.35963\\lib/net452/x86/Python.Runtime.27.dll",
-        "C:\\Users\\mannj\\.nuget\\packages\\uipath.python.activities/1.1.7594.35963\\lib/net452/x86/Python.Runtime.33.dll",
-        "C:\\Users\\mannj\\.nuget\\packages\\uipath.python.activities/1.1.7594.35963\\lib/net452/x86/Python.Runtime.34.dll",
-        "C:\\Users\\mannj\\.nuget\\packages\\uipath.python.activities/1.1.7594.35963\\lib/net452/x86/Python.Runtime.35.dll",
-        "C:\\Users\\mannj\\.nuget\\packages\\uipath.python.activities/1.1.7594.35963\\lib/net452/x86/Python.Runtime.36.dll"
+        "C:\\Users\\mannj\\.nuget\\packages\\uipath.python.activities/1.1.6863.33404\\lib/net452/UiPath.Python.Activities.Design.dll",
+        "C:\\Users\\mannj\\.nuget\\packages\\uipath.python.activities/1.1.6863.33404\\lib/net452/UiPath.Python.Activities.dll",
+        "C:\\Users\\mannj\\.nuget\\packages\\uipath.python.activities/1.1.6863.33404\\lib/net452/UiPath.Python.dll",
+        "C:\\Users\\mannj\\.nuget\\packages\\uipath.python.activities/1.1.6863.33404\\lib/net452/x64/Python.Runtime.35.dll",
+        "C:\\Users\\mannj\\.nuget\\packages\\uipath.python.activities/1.1.6863.33404\\lib/net452/x64/Python.Runtime.36.dll",
+        "C:\\Users\\mannj\\.nuget\\packages\\uipath.python.activities/1.1.6863.33404\\lib/net452/x86/Python.Runtime.27.dll",
+        "C:\\Users\\mannj\\.nuget\\packages\\uipath.python.activities/1.1.6863.33404\\lib/net452/x86/Python.Runtime.33.dll",
+        "C:\\Users\\mannj\\.nuget\\packages\\uipath.python.activities/1.1.6863.33404\\lib/net452/x86/Python.Runtime.34.dll",
+        "C:\\Users\\mannj\\.nuget\\packages\\uipath.python.activities/1.1.6863.33404\\lib/net452/x86/Python.Runtime.35.dll",
+        "C:\\Users\\mannj\\.nuget\\packages\\uipath.python.activities/1.1.6863.33404\\lib/net452/x86/Python.Runtime.36.dll"
       ]
     }
   ],
@@ -249,7 +249,7 @@
     },
     "UiPath.Python.Activities": {
       "Id": "UiPath.Python.Activities",
-      "Version": "1.1.7594.35963",
+      "Version": "1.1.6863.33404",
       "Dependencies": []
     },
     "UiPath.System.Activities": {
