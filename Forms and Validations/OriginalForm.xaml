@@ -1,0 +1,356 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="OriginalForm" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mewd="clr-namespace:Microsoft.Exchange.WebServices.Data;assembly=Microsoft.Exchange.WebServices" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ufa="clr-namespace:UiPath.Form.Activities;assembly=UiPath.Form.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_Email" Type="OutArgument(mewd:EmailAddress)" />
+    <x:Property Name="out_City" Type="OutArgument(x:String)" />
+    <x:Property Name="out_County" Type="OutArgument(x:String)" />
+    <x:Property Name="out_ZipCode" Type="OutArgument(x:String)" />
+    <x:Property Name="out_StateName" Type="OutArgument(x:String)" />
+    <x:Property Name="out_StateAbbr" Type="OutArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>868,3596.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>OriginalForm_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="50">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>Microsoft.Exchange.WebServices.Data</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="36">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.Exchange.WebServices</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="OriginalForm" sap:VirtualizedContainerService.HintSize="848,3496.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="Json" />
+      <Variable x:TypeArguments="x:String" Name="city" />
+      <Variable x:TypeArguments="x:String" Name="county" />
+      <Variable x:TypeArguments="x:String" Name="state" />
+      <Variable x:TypeArguments="x:String" Name="zipCode" />
+      <Variable x:TypeArguments="x:String" Name="email" />
+      <Variable x:TypeArguments="scg:IEnumerable(x:Object)" Name="emaills" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ReadColumn DisplayName="Read Column" sap:VirtualizedContainerService.HintSize="806,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadColumn_1" Result="[emaills]" SheetName="Sheet1" StartingCell="A1" WorkbookPath="Forms and Validations\testdata.xlsx" />
+    <ufa:FormActivity Dismissed="{x:Null}" FormFieldsInputData="{x:Null}" SelectedButton="{x:Null}" TimeoutInSeconds="{x:Null}" WindowPositionLeft="{x:Null}" WindowPositionTop="{x:Null}" sap2010:Annotation.AnnotationText="if email is not found user is sent to this form where they can register" DisableMaximizeButton="True" DisableMinimizeButton="True" DisplayName="First Time User" FormFieldsOutputData="[Json]" FormHeight="525" FormSchema="%[{&quot;label&quot;:&quot;Email&quot;,&quot;placeholder&quot;:&quot;Email address&quot;,&quot;tableView&quot;:true,&quot;validate&quot;:{&quot;required&quot;:true},&quot;key&quot;:&quot;email&quot;,&quot;type&quot;:&quot;email&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;City&quot;,&quot;placeholder&quot;:&quot;City&quot;,&quot;spellcheck&quot;:true,&quot;tableView&quot;:true,&quot;validate&quot;:{&quot;required&quot;:true},&quot;key&quot;:&quot;city&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true,&quot;calculateServer&quot;:false},{&quot;label&quot;:&quot;County&quot;,&quot;placeholder&quot;:&quot;County&quot;,&quot;spellcheck&quot;:true,&quot;tableView&quot;:true,&quot;validate&quot;:{&quot;required&quot;:true},&quot;key&quot;:&quot;county&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true,&quot;calculateServer&quot;:false},{&quot;label&quot;:&quot;State&quot;,&quot;widget&quot;:&quot;html5&quot;,&quot;placeholder&quot;:&quot;State Name-State Abbreviation&quot;,&quot;tableView&quot;:true,&quot;data&quot;:{&quot;values&quot;:[{&quot;value&quot;:&quot;alabamaAl&quot;,&quot;label&quot;:&quot;Alabama-AL&quot;},{&quot;label&quot;:&quot;Alaska-AK&quot;,&quot;value&quot;:&quot;Alaska-AK&quot;},{&quot;label&quot;:&quot;Arizona-AZ&quot;,&quot;value&quot;:&quot;Arizona-AZ&quot;},{&quot;label&quot;:&quot;Arkansas-AR&quot;,&quot;value&quot;:&quot;Arkansas-AR&quot;},{&quot;label&quot;:&quot;California-CA&quot;,&quot;value&quot;:&quot;California-CA&quot;},{&quot;label&quot;:&quot;Colorado-CO&quot;,&quot;value&quot;:&quot;Colorado-CO&quot;},{&quot;label&quot;:&quot;Connecticut-CT&quot;,&quot;value&quot;:&quot;Connecticut-CT&quot;},{&quot;label&quot;:&quot;Delaware-DE&quot;,&quot;value&quot;:&quot;Delaware-DE&quot;},{&quot;label&quot;:&quot;District Of Columbia-DC&quot;,&quot;value&quot;:&quot;District Of Columbia-DC&quot;},{&quot;label&quot;:&quot;Florida-FL&quot;,&quot;value&quot;:&quot;Florida-FL&quot;},{&quot;label&quot;:&quot;Georgia-GA&quot;,&quot;value&quot;:&quot;Georgia-GA&quot;},{&quot;label&quot;:&quot;Hawaii-HI&quot;,&quot;value&quot;:&quot;Hawaii-HI&quot;},{&quot;label&quot;:&quot;Idaho-ID&quot;,&quot;value&quot;:&quot;Idaho-ID&quot;},{&quot;label&quot;:&quot;Illinois-IL&quot;,&quot;value&quot;:&quot;Illinois-IL&quot;},{&quot;label&quot;:&quot;Indiana-IN&quot;,&quot;value&quot;:&quot;Indiana-IN&quot;},{&quot;label&quot;:&quot;Iowa-IA&quot;,&quot;value&quot;:&quot;Iowa-IA&quot;},{&quot;label&quot;:&quot;Kansas-KS&quot;,&quot;value&quot;:&quot;Kansas-KS&quot;},{&quot;label&quot;:&quot;Kentucky-KY&quot;,&quot;value&quot;:&quot;Kentucky-KY&quot;},{&quot;label&quot;:&quot;Louisiana-LA&quot;,&quot;value&quot;:&quot;Louisiana-LA&quot;},{&quot;label&quot;:&quot;Maine-ME&quot;,&quot;value&quot;:&quot;Maine-ME&quot;},{&quot;label&quot;:&quot;Maryland-MD&quot;,&quot;value&quot;:&quot;Maryland-MD&quot;},{&quot;label&quot;:&quot;Massachusetts-MA&quot;,&quot;value&quot;:&quot;Massachusetts-MA&quot;},{&quot;label&quot;:&quot;Michigan-MI&quot;,&quot;value&quot;:&quot;Michigan-MI&quot;},{&quot;label&quot;:&quot;Minnesota-MN&quot;,&quot;value&quot;:&quot;Minnesota-MN&quot;},{&quot;label&quot;:&quot;Mississippi-MS&quot;,&quot;value&quot;:&quot;Mississippi-MS&quot;},{&quot;label&quot;:&quot;Missouri-MO&quot;,&quot;value&quot;:&quot;Missouri-MO&quot;},{&quot;label&quot;:&quot;Montana-MT&quot;,&quot;value&quot;:&quot;Montana-MT&quot;},{&quot;label&quot;:&quot;Nebraska-NE&quot;,&quot;value&quot;:&quot;Nebraska-NE&quot;},{&quot;label&quot;:&quot;Nevada-NV&quot;,&quot;value&quot;:&quot;Nevada-NV&quot;},{&quot;label&quot;:&quot;New Hampshire-NH&quot;,&quot;value&quot;:&quot;New Hampshire-NH&quot;},{&quot;label&quot;:&quot;New Jersey-NJ&quot;,&quot;value&quot;:&quot;New Jersey-NJ&quot;},{&quot;label&quot;:&quot;New Mexico-NM&quot;,&quot;value&quot;:&quot;New Mexico-NM&quot;},{&quot;label&quot;:&quot;New York-NY&quot;,&quot;value&quot;:&quot;New York-NY&quot;},{&quot;label&quot;:&quot;North Carolina-NC&quot;,&quot;value&quot;:&quot;North Carolina-NC&quot;},{&quot;label&quot;:&quot;North Dakota-ND&quot;,&quot;value&quot;:&quot;North Dakota-ND&quot;},{&quot;label&quot;:&quot;Ohio-OH&quot;,&quot;value&quot;:&quot;Ohio-OH&quot;},{&quot;label&quot;:&quot;Oklahoma-OK&quot;,&quot;value&quot;:&quot;Oklahoma-OK&quot;},{&quot;label&quot;:&quot;Oregon-OR&quot;,&quot;value&quot;:&quot;Oregon-OR&quot;},{&quot;label&quot;:&quot;Pennsylvania-PA&quot;,&quot;value&quot;:&quot;Pennsylvania-PA&quot;},{&quot;label&quot;:&quot;Rhode Island-RI&quot;,&quot;value&quot;:&quot;Rhode Island-RI&quot;},{&quot;label&quot;:&quot;South Carolina-SC&quot;,&quot;value&quot;:&quot;South Carolina-SC&quot;},{&quot;label&quot;:&quot;South Dakota-SD&quot;,&quot;value&quot;:&quot;South Dakota-SD&quot;},{&quot;label&quot;:&quot;Tennessee-TN&quot;,&quot;value&quot;:&quot;Tennessee-TN&quot;},{&quot;label&quot;:&quot;Texas-TX&quot;,&quot;value&quot;:&quot;Texas-TX&quot;},{&quot;label&quot;:&quot;Utah-UT&quot;,&quot;value&quot;:&quot;Utah-UT&quot;},{&quot;label&quot;:&quot;Vermont-VT&quot;,&quot;value&quot;:&quot;Vermont-VT&quot;},{&quot;label&quot;:&quot;Virginia-VA&quot;,&quot;value&quot;:&quot;Virginia-VA&quot;},{&quot;label&quot;:&quot;Washington-WA&quot;,&quot;value&quot;:&quot;Washington-WA&quot;},{&quot;label&quot;:&quot;West Virginia-WV&quot;,&quot;value&quot;:&quot;West Virginia-WV&quot;},{&quot;label&quot;:&quot;Wisconsin-WI&quot;,&quot;value&quot;:&quot;Wisconsin-WI&quot;},{&quot;label&quot;:&quot;Wyoming-WY&quot;,&quot;value&quot;:&quot;Wyoming-WY&quot;}]},&quot;validate&quot;:{&quot;required&quot;:true},&quot;key&quot;:&quot;state&quot;,&quot;type&quot;:&quot;select&quot;,&quot;indexeddb&quot;:{&quot;filter&quot;:{}},&quot;input&quot;:true,&quot;calculateServer&quot;:false,&quot;uniqueOptions&quot;:false},{&quot;label&quot;:&quot;ZipCode&quot;,&quot;placeholder&quot;:&quot;5 digit ZipCode&quot;,&quot;tableView&quot;:false,&quot;delimiter&quot;:false,&quot;requireDecimal&quot;:false,&quot;validate&quot;:{&quot;required&quot;:true,&quot;customMessage&quot;:&quot;Please enter your 5 digit ZipCode&quot;,&quot;min&quot;:0,&quot;max&quot;:99999},&quot;key&quot;:&quot;zipCode&quot;,&quot;type&quot;:&quot;number&quot;,&quot;input&quot;:true,&quot;calculateServer&quot;:false},{&quot;type&quot;:&quot;button&quot;,&quot;label&quot;:&quot;Submit&quot;,&quot;key&quot;:&quot;submit&quot;,&quot;disableOnInvalid&quot;:true,&quot;input&quot;:true,&quot;tableView&quot;:false,&quot;calculateServer&quot;:false}]" FormTheme="{}{&quot;Activities&quot;:[&quot;FORMS&quot;],&quot;Id&quot;:&quot;1607545281291&quot;,&quot;Name&quot;:&quot;TAMUwhite&quot;,&quot;BaseCss&quot;:&quot;../../assets/css/themes/united.bootstrap.min.css&quot;,&quot;ImageSrc&quot;:&quot;../../assets/themeicons/united.png&quot;,&quot;OverrideCssUrl&quot;:&quot;&quot;,&quot;UserStyleOverrides&quot;:&quot;body , h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {\n                      font-family : Georgia !important;\n                    }table, .btn, .form-control {\n                      font-size : 14px !important;\n                     }h1 {\n                      font-size : 36px !important;\n                    }h2 {\n                      font-size : 30px !important;\n                    }h3 {\n                      font-size : 24px !important;\n                    }h4 {\n                      font-size : 18px !important;\n                    }h5 {\n                      font-size : 14px !important;\n                    }h6 {\n                      font-size : 12px !important;\n                    }body {\n      background:  #500000 !important;\n      font-size : 14px !important;\n      font-family : Georgia !important;\n      color : #ffffff !important\n    } .panel-default {\n                        background:   !important;\n                        border-color :   !important;\n                      }\n                 .panel-default &gt; .panel-heading {\n                        background-color:  !important;\n                        color : #ffffff !important\n                      }.btn-primary {\n                          background:  #ffffff !important;\n                          border-color:  #f1f1f1 !important;\n                          color:  #000000 !important;\n                      } .btn-primary:hover {\n                          background:  #ffffff !important;\n                          color:  #000000 !important;\n                      } .btn-default {\n                        background:   !important;\n                        border-color:   !important;\n                        color:   !important;\n                      } .btn-default:hover {\n                        background:   !important;\n                        color:   !important;\n                      } &quot;,&quot;Properties&quot;:&quot;&quot;,&quot;IsCustomTheme&quot;:true,&quot;Version&quot;:1,&quot;ThemeVersion&quot;:1}" FormTitle="First time user sign up" FormWidth="400" GenerateInputFields="False" sap:VirtualizedContainerService.HintSize="644,3200.66666666667" sap2010:WorkflowViewState.IdRef="FormActivity_1" IsReadOnly="False" MaxColumnsForSchemaGeneration="6" RunDoBlockFirst="False" RunInIsolatedMode="False">
+      <ufa:FormActivity.Body>
+        <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
+          <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Get and assign output from form" sap:VirtualizedContainerService.HintSize="606,3044" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="njl:JObject" Name="Json_Data" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="564,62" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[Json_Data]" JsonString="[Json]" />
+            <Sequence DisplayName="Get and assign email" sap:VirtualizedContainerService.HintSize="564,829.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="ui:GenericValue" Name="userEmail" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign sap:VirtualizedContainerService.HintSize="522,62" sap2010:WorkflowViewState.IdRef="Assign_11">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="ui:GenericValue">[userEmail]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="ui:GenericValue">[Json_Data.SelectToken("email").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="522,62" sap2010:WorkflowViewState.IdRef="Assign_12">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[email]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[userEmail.Split(":"c)(0).Replace("}","").Trim]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="522,62" sap2010:WorkflowViewState.IdRef="Assign_13">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="mewd:EmailAddress">[out_Email]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="mewd:EmailAddress">[email.Replace("""","")]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <If Condition="[emaills.Contains(email)]" sap:VirtualizedContainerService.HintSize="522,431.333333333333" sap2010:WorkflowViewState.IdRef="If_1">
+                <If.Then>
+                  <Sequence sap:VirtualizedContainerService.HintSize="376,277.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;This email &quot;+email+&quot; is already taken please try putting in a different email.&quot;]" />
+                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke OriginalForm workflow" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Forms and Validations\OriginalForm.xaml">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <OutArgument x:TypeArguments="mewd:EmailAddress" x:Key="out_Email">[out_Email]</OutArgument>
+                        <OutArgument x:TypeArguments="x:String" x:Key="out_City">[out_City]</OutArgument>
+                        <OutArgument x:TypeArguments="x:String" x:Key="out_County">[out_County]</OutArgument>
+                        <OutArgument x:TypeArguments="x:String" x:Key="out_ZipCode">[out_ZipCode]</OutArgument>
+                        <OutArgument x:TypeArguments="x:String" x:Key="out_StateName">[out_StateName]</OutArgument>
+                        <OutArgument x:TypeArguments="x:String" x:Key="out_StateAbbr">[out_StateAbbr]</OutArgument>
+                      </ui:InvokeWorkflowFile.Arguments>
+                    </ui:InvokeWorkflowFile>
+                  </Sequence>
+                </If.Then>
+              </If>
+            </Sequence>
+            <Sequence DisplayName="Get and assign city" sap:VirtualizedContainerService.HintSize="564,358" sap2010:WorkflowViewState.IdRef="Sequence_7">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:String" Name="userCity" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_14">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[userCity]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[Json_Data.SelectToken("city").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_15">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[city]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[userCity.Split(":"c)(0).Replace("}","").Trim]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_16">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_City]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[city.Replace("""","")]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+            <Sequence DisplayName="Get and assign county" sap:VirtualizedContainerService.HintSize="564,358" sap2010:WorkflowViewState.IdRef="Sequence_8">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="ui:GenericValue" Name="userCounty" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_17">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="ui:GenericValue">[userCounty]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="ui:GenericValue">[Json_Data.SelectToken("county").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_18">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[county]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[userCounty.Split(":"c)(0).Replace("}","").Trim]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_19">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_County]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[county.Replace("""","")]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+            <Sequence DisplayName="Get and assign zipCode" sap:VirtualizedContainerService.HintSize="564,358" sap2010:WorkflowViewState.IdRef="Sequence_9">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="ui:GenericValue" Name="userEmail" />
+                <Variable x:TypeArguments="ui:GenericValue" Name="out_Email" />
+                <Variable x:TypeArguments="ui:GenericValue" Name="userZip" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_20">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="ui:GenericValue">[userZip]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="ui:GenericValue">[Json_Data.SelectToken("zipCode").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_21">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[zipCode]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[userZip.Split(":"c)(0).Replace("}","").Trim]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_22">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_ZipCode]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[zipCode.Replace("""","")]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+            <Sequence DisplayName="Get and assign state" sap:VirtualizedContainerService.HintSize="564,756" sap2010:WorkflowViewState.IdRef="Sequence_10">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:String" Name="userState" />
+                <Variable x:TypeArguments="x:String" Name="combinedState" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign sap:VirtualizedContainerService.HintSize="304,62" sap2010:WorkflowViewState.IdRef="Assign_23">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[userState]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[Json_Data.SelectToken("state").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="304,62" sap2010:WorkflowViewState.IdRef="Assign_24">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[state]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[userState.Split(":"c)(0).Replace("}","").Trim]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="304,62" sap2010:WorkflowViewState.IdRef="Assign_25">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[combinedState]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[state.Replace("""","")]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Sequence DisplayName="Split state into name and abbreviation" sap:VirtualizedContainerService.HintSize="304,358" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="sd:DataTable" Name="UserInfo" />
+                  <Variable x:TypeArguments="x:String" Name="UserString" />
+                  <Variable x:TypeArguments="x:Int32" Name="Index" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_3">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Int32">[Index]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Int32">[combinedState.IndexOf("-")]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_4">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[out_StateName]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[combinedState.Substring(0,Index)]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_5">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[out_StateAbbr]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[combinedState.Substring(Index+1,2)]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+            </Sequence>
+          </Sequence>
+        </ActivityAction>
+      </ufa:FormActivity.Body>
+      <ufa:FormActivity.DelayBody>
+        <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
+          <Delay Duration="00:00:00.2500000" sap2010:WorkflowViewState.IdRef="Delay_1" />
+        </ActivityAction>
+      </ufa:FormActivity.DelayBody>
+      <ufa:FormActivity.FormFieldsCollection>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_City">[city]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_County">[county]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_State">[state]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_Email">[email]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_ZipCode">[zipCode]</OutArgument>
+      </ufa:FormActivity.FormFieldsCollection>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ufa:FormActivity>
+  </Sequence>
+</Activity>
