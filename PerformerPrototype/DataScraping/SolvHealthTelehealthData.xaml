@@ -63,7 +63,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser - Solv Health Website" sap:VirtualizedContainerService.HintSize="628.666666666667,1454.66666666667" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="https://www.solvhealth.com/covid19">
+    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Open Browser - Solv Health Website" sap:VirtualizedContainerService.HintSize="628.666666666667,1454.66666666667" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="https://www.solvhealth.com/covid19">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -122,7 +122,7 @@
                   </scg:List>
                 </ui:SelectItem.Items>
                 <ui:SelectItem.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="&lt;html app='chrome.exe' title='Navigating COVID-19 and Getting Care through Solv' /&gt;&lt;webctrl tag='SELECT' /&gt;">
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="&lt;webctrl tag='SELECT' /&gt;">
                     <ui:Target.TimeoutMS>
                       <InArgument x:TypeArguments="x:Int32" />
                     </ui:Target.TimeoutMS>
@@ -132,7 +132,7 @@
                   </ui:Target>
                 </ui:SelectItem.Target>
               </ui:SelectItem>
-              <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Submit Button" sap:VirtualizedContainerService.HintSize="510.666666666667,68" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="1000" DisplayName="Click Submit Button" sap:VirtualizedContainerService.HintSize="510.666666666667,68" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
                 <ui:Click.CursorPosition>
                   <ui:CursorPosition Position="Center">
                     <ui:CursorPosition.OffsetX>
@@ -168,7 +168,7 @@
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[out_SolvHealthTelehealthDT]" DisplayName="Extract Structured Data - Solv Health Telemedicine Sites" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='li' class='card-collection__card'/&gt;&lt;webctrl tag='article'/&gt;&lt;/row&gt;&lt;column exact='1' name='TelemedicineSiteInfo' attr='text'&gt;&lt;webctrl tag='li' class='card-collection__card'/&gt;&lt;webctrl tag='article'/&gt;&lt;webctrl tag='div' class='location-card__image-content-wrapper' idx='1'/&gt;&lt;/column&gt;&lt;column exact='1' name='BookTelemedicineURL' attr='href'&gt;&lt;webctrl tag='li' class='card-collection__card'/&gt;&lt;webctrl tag='article'/&gt;&lt;webctrl tag='div' class='location-card__image-content-wrapper' idx='1'/&gt;&lt;webctrl tag='div' class='location-card__content' idx='1'/&gt;&lt;webctrl tag='section' class='location-card__body' idx='2'/&gt;&lt;webctrl tag='a' class='mdc-button mdc-button--solv-primary mdc-ripple-upgraded' idx='1'/&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="426.666666666667,68" sap2010:WorkflowViewState.IdRef="ExtractData_2" MaxNumberOfResults="100" SimulateClick="True">
                     <ui:ExtractData.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="&lt;webctrl css-selector='body&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;ul' tag='UL' /&gt;" WaitForReady="COMPLETE">
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="&lt;webctrl css-selector='body&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;ul' tag='UL' /&gt;" WaitForReady="[WaitForReady.COMPLETE]">
                         <ui:Target.TimeoutMS>
                           <InArgument x:TypeArguments="x:Int32" />
                         </ui:Target.TimeoutMS>
