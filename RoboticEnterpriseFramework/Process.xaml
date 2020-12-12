@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>639.2,762.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>680.8,983.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="42">
@@ -58,7 +58,7 @@
       <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Need StateAbrev to be assigned since it is a part of the Url for the &quot;Navigate to Site&quot; workflow. As a note all assets I put in do not need the config.xslx since they pull directly from Orchestrator and not indirectly via config. The assets were put in config.xslx just for notekeeping." DisplayName="Process" sap:VirtualizedContainerService.HintSize="619.2,662.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Need StateAbrev to be assigned since it is a part of the Url for the &quot;Navigate to Site&quot; workflow. As a note all assets I put in do not need the config.xslx since they pull directly from Orchestrator and not indirectly via config. The assets were put in config.xslx just for notekeeping." DisplayName="Process" sap:VirtualizedContainerService.HintSize="660.8,883.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="StateAbrev" />
       <Variable x:TypeArguments="sd:DataTable" Name="StateJsonTable" />
@@ -70,7 +70,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap:VirtualizedContainerService.HintSize="577.6,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign sap:VirtualizedContainerService.HintSize="619.2,60" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[StateAbrev]</OutArgument>
       </Assign.To>
@@ -78,7 +78,7 @@
         <InArgument x:TypeArguments="x:String">GA</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Navigates to API for COVID data then makes Json result into a datatable" DisplayName="Invoke Covid_NavigateToSite workflow" sap:VirtualizedContainerService.HintSize="577.6,132" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Covid\Covid_NavigateToSite.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Navigates to API for COVID data then makes Json result into a datatable" DisplayName="Invoke Covid_NavigateToSite workflow" sap:VirtualizedContainerService.HintSize="619.2,132" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Covid/Covid_HttpPullsToJson.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_StateAbrev">[StateAbrev.ToLower]</InArgument>
         <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_StateResultJsonTable">[StateJsonTable]</OutArgument>
@@ -90,14 +90,26 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InvokeWorkflowFile>
-    <If Condition="[StateJsonTable IsNot Nothing]" sap:VirtualizedContainerService.HintSize="577.6,237.6" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[StateJsonTable IsNot Nothing]" sap:VirtualizedContainerService.HintSize="619.2,458.4" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
-        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Python Loading workflow" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Covid/WriteExcelFiles.xaml">
-          <ui:InvokeWorkflowFile.Arguments>
-            <InArgument x:TypeArguments="sd:DataTable" x:Key="in_NationJsonTable">[NationJsonTable]</InArgument>
-            <InArgument x:TypeArguments="sd:DataTable" x:Key="in_StateJsonTable">[StateJsonTable]</InArgument>
-          </ui:InvokeWorkflowFile.Arguments>
-        </ui:InvokeWorkflowFile>
+        <Sequence sap:VirtualizedContainerService.HintSize="375.2,308.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Python Loading workflow" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Covid/WriteExcelFiles.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_NationJsonTable">[NationJsonTable]</InArgument>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_StateJsonTable">[StateJsonTable]</InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke LastDitchPythonOpen workflow" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Covid\LastDitchPythonOpen.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <scg:Dictionary x:TypeArguments="x:String, Argument" />
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+        </Sequence>
       </If.Then>
       <If.Else>
         <Throw Exception="[new BusinessRuleException(&quot;JsonTable not exported properly&quot;)]" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Throw_1" />

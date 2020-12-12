@@ -1569,9 +1569,9 @@
     "restore": {
       "projectUniqueName": "RoboticEnterpriseFramework",
       "projectName": "RoboticEnterpriseFramework",
-      "projectPath": "C:\\Users\\mannj\\Documents\\UiPath\\RoboticEnterpriseFramework\\.local",
+      "projectPath": "C:\\Users\\mannj\\Documents\\GitHub\\rev_uipath_wrkspc\\TeamPi-Project2\\RoboticEnterpriseFramework\\.local",
       "packagesPath": "C:\\Users\\mannj\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mannj\\Documents\\UiPath\\RoboticEnterpriseFramework\\.local"
+      "outputPath": "C:\\Users\\mannj\\Documents\\GitHub\\rev_uipath_wrkspc\\TeamPi-Project2\\RoboticEnterpriseFramework\\.local"
     },
     "frameworks": {
       "net461": {
