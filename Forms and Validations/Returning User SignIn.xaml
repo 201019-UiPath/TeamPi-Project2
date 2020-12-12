@@ -1,12 +1,12 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="Returning_User_SignIn" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mewd="clr-namespace:Microsoft.Exchange.WebServices.Data;assembly=Microsoft.Exchange.WebServices" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ufa="clr-namespace:UiPath.Form.Activities;assembly=UiPath.Form.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="out_Email" Type="OutArgument(mewd:EmailAddress)" />
+    <x:Property Name="out_Email" Type="OutArgument(x:String)" />
     <x:Property Name="out_Location" Type="OutArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>898,1778</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>898,1818</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Returning_User_SignIn_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="25">
@@ -38,7 +38,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="19">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="22">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -58,19 +58,23 @@
       <AssemblyReference>Newtonsoft.Json</AssemblyReference>
       <AssemblyReference>Microsoft.Exchange.WebServices</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Returning_User_SignIn" sap:VirtualizedContainerService.HintSize="878,1718" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="Json" />
-      <Variable x:TypeArguments="scg:IEnumerable(x:Object)" Name="emaills" />
+      <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="emaills" />
+      <Variable x:TypeArguments="scg:IEnumerable(x:Object)" Name="EmailAddress" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ReadColumn DisplayName="Read Column" sap:VirtualizedContainerService.HintSize="836,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadColumn_1" Result="[emaills]" SheetName="Sheet1" StartingCell="A1" WorkbookPath="Forms and Validations\testdata.xlsx" />
+    <ui:ReadColumn DisplayName="Read Column" sap:VirtualizedContainerService.HintSize="836,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadColumn_1" Result="[EmailAddress]" SheetName="Sheet1" StartingCell="A1" WorkbookPath="Forms and Validations\testdata.xlsx" />
     <ufa:FormActivity Dismissed="{x:Null}" FormFieldsInputData="{x:Null}" FormTitle="{x:Null}" SelectedButton="{x:Null}" TimeoutInSeconds="{x:Null}" WindowPositionLeft="{x:Null}" WindowPositionTop="{x:Null}" DisableMaximizeButton="False" DisableMinimizeButton="False" DisplayName="Create Form" FormFieldsOutputData="[Json]" FormHeight="338" FormSchema="%[{&quot;label&quot;:&quot;Email&quot;,&quot;spellcheck&quot;:true,&quot;tableView&quot;:true,&quot;validate&quot;:{&quot;required&quot;:true},&quot;key&quot;:&quot;email&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true,&quot;calculateServer&quot;:false},{&quot;label&quot;:&quot;What location would you like to use?&quot;,&quot;optionsLabelPosition&quot;:&quot;right&quot;,&quot;inline&quot;:false,&quot;tableView&quot;:false,&quot;values&quot;:[{&quot;label&quot;:&quot;Same location&quot;,&quot;value&quot;:&quot;same&quot;,&quot;shortcut&quot;:&quot;&quot;},{&quot;label&quot;:&quot;Change location&quot;,&quot;value&quot;:&quot;new&quot;,&quot;shortcut&quot;:&quot;&quot;}],&quot;key&quot;:&quot;location&quot;,&quot;type&quot;:&quot;radio&quot;,&quot;input&quot;:true,&quot;calculateServer&quot;:false},{&quot;type&quot;:&quot;button&quot;,&quot;label&quot;:&quot;Submit&quot;,&quot;key&quot;:&quot;submit&quot;,&quot;disableOnInvalid&quot;:true,&quot;input&quot;:true,&quot;tableView&quot;:false,&quot;calculateServer&quot;:false}]" FormTheme="{}{&quot;Activities&quot;:[&quot;FORMS&quot;],&quot;Id&quot;:&quot;1607613962475&quot;,&quot;Name&quot;:&quot;TAMU maroon&quot;,&quot;BaseCss&quot;:&quot;../../assets/css/themes/superhero.bootstrap.min.css&quot;,&quot;ImageSrc&quot;:&quot;../../assets/themeicons/superhero.png&quot;,&quot;OverrideCssUrl&quot;:&quot;&quot;,&quot;UserStyleOverrides&quot;:&quot;body , h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {\n                      font-family : Georgia !important;\n                    }table, .btn, .form-control {\n                      font-size : 15px !important;\n                     }h1 {\n                      font-size : 37px !important;\n                    }h2 {\n                      font-size : 31px !important;\n                    }h3 {\n                      font-size : 25px !important;\n                    }h4 {\n                      font-size : 19px !important;\n                    }h5 {\n                      font-size : 15px !important;\n                    }h6 {\n                      font-size : 13px !important;\n                    }body {\n      background:  #500000 !important;\n      font-size : 15px !important;\n      font-family : Georgia !important;\n      color : #ebebeb !important\n    } .panel-default {\n                        background:   !important;\n                        border-color :   !important;\n                      }\n                 .panel-default &gt; .panel-heading {\n                        background-color:  !important;\n                        color : #ebebeb !important\n                      }.btn-primary {\n                          background:  #ffffff !important;\n                          border-color:  #fbfbfb !important;\n                          color:  #500000 !important;\n                      } .btn-primary:hover {\n                          background:  #ffffff !important;\n                          color:  #500000 !important;\n                      } .btn-default {\n                        background:   !important;\n                        border-color:   !important;\n                        color:   !important;\n                      } .btn-default:hover {\n                        background:   !important;\n                        color:   !important;\n                      } &quot;,&quot;Properties&quot;:&quot;&quot;,&quot;IsCustomTheme&quot;:true,&quot;Version&quot;:1,&quot;ThemeVersion&quot;:1}" FormWidth="358" GenerateInputFields="False" sap:VirtualizedContainerService.HintSize="836,1364.66666666667" sap2010:WorkflowViewState.IdRef="FormActivity_1" IsReadOnly="False" MaxColumnsForSchemaGeneration="6" RunDoBlockFirst="False" RunInIsolatedMode="False">
       <ufa:FormActivity.Body>
         <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
@@ -121,7 +125,7 @@
             </Sequence>
             <Sequence DisplayName="Grab and assign email" sap:VirtualizedContainerService.HintSize="756,646.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
               <Sequence.Variables>
-                <Variable x:TypeArguments="mewd:EmailAddress" Name="userEmail" />
+                <Variable x:TypeArguments="x:String" Name="userEmail" />
                 <Variable x:TypeArguments="x:String" Name="email" />
                 <Variable x:TypeArguments="x:Boolean" Name="exists" />
               </Sequence.Variables>
@@ -133,10 +137,10 @@
               </sap:WorkflowViewStateService.ViewState>
               <Assign sap:VirtualizedContainerService.HintSize="714,62" sap2010:WorkflowViewState.IdRef="Assign_1">
                 <Assign.To>
-                  <OutArgument x:TypeArguments="mewd:EmailAddress">[userEmail]</OutArgument>
+                  <OutArgument x:TypeArguments="x:String">[userEmail]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
-                  <InArgument x:TypeArguments="mewd:EmailAddress">[Json_Data.SelectToken("email").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String">[Json_Data.SelectToken("email").ToString]</InArgument>
                 </Assign.Value>
               </Assign>
               <Assign sap:VirtualizedContainerService.HintSize="714,62" sap2010:WorkflowViewState.IdRef="Assign_2">
@@ -149,13 +153,13 @@
               </Assign>
               <Assign sap:VirtualizedContainerService.HintSize="714,62" sap2010:WorkflowViewState.IdRef="Assign_3">
                 <Assign.To>
-                  <OutArgument x:TypeArguments="mewd:EmailAddress">[out_Email]</OutArgument>
+                  <OutArgument x:TypeArguments="x:String">[out_Email]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
-                  <InArgument x:TypeArguments="mewd:EmailAddress">[email.Replace("""","")]</InArgument>
+                  <InArgument x:TypeArguments="x:String">[email.Replace("""","")]</InArgument>
                 </Assign.Value>
               </Assign>
-              <If Condition="[emaills.Contains(email)]" sap:VirtualizedContainerService.HintSize="714,248.666666666667" sap2010:WorkflowViewState.IdRef="If_2">
+              <If Condition="[EmailAddress.Contains(out_Email)]" sap:VirtualizedContainerService.HintSize="714,248.666666666667" sap2010:WorkflowViewState.IdRef="If_2">
                 <If.Then>
                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Valid email Yay&quot;]" />
                 </If.Then>
