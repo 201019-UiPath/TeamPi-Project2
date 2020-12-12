@@ -10,7 +10,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>498.666666666667,2659.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>416.666666666667,1248</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -63,7 +63,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Build info update email based on HTML template populated with CDC coronavirus case count and death count data, attach constructed .XLSX file of CDC data, send Outlook email with proper attachment" DisplayName="Send Email - Info Update" sap:VirtualizedContainerService.HintSize="478.666666666667,2559.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_12">
+  <Sequence sap2010:Annotation.AnnotationText="Build info update email based on HTML template populated with CDC coronavirus case count and death count data, attach constructed .XLSX file of CDC data, send Outlook email with proper attachment" DisplayName="Send Email - Info Update" sap:VirtualizedContainerService.HintSize="396.666666666667,1188" sap2010:WorkflowViewState.IdRef="Sequence_12">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="emailTemplate" />
       <Variable x:TypeArguments="x:String" Name="CDCCaseCountHTML">
@@ -94,8 +94,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ReadTextFile Content="[emailTemplate]" DisplayName="Read Text File - Info Update HTML Email Template" FileName="Email\HTML\LitmusEmailInfoUpdate.html" sap:VirtualizedContainerService.HintSize="436.666666666667,134.666666666667" sap2010:WorkflowViewState.IdRef="ReadTextFile_2" />
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[in_CDCDataCasesDT]" DisplayName="For Each Row - Populate CDC Case Count Data" sap:VirtualizedContainerService.HintSize="436.666666666667,306.666666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ReadTextFile Content="[emailTemplate]" DisplayName="Read Text File - Info Update HTML Email Template" FileName="Email\HTML\LitmusEmailInfoUpdate.html" sap:VirtualizedContainerService.HintSize="354.666666666667,134.666666666667" sap2010:WorkflowViewState.IdRef="ReadTextFile_2" />
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[in_CDCDataCasesDT]" DisplayName="For Each Row - Populate CDC Case Count Data" sap:VirtualizedContainerService.HintSize="354.666666666667,306.666666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
@@ -112,14 +112,14 @@
                 <OutArgument x:TypeArguments="x:String">[CDCCaseCountHTML]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[String.Format(CDCCaseCountHTML + "&lt;li&gt;{0}: {1}&lt;/li&gt;", row(0), row(1))]</InArgument>
+                <InArgument x:TypeArguments="x:String">[String.Format(CDCCaseCountHTML + "&lt;tr&gt;&lt;td&gt;{0}&lt;/td&gt;&lt;td&gt;{1}&lt;/td&gt;&lt;/tr&gt;", row(0), row(1))]</InArgument>
               </Assign.Value>
             </Assign>
           </Sequence>
         </ActivityAction>
       </ui:ForEachRow.Body>
     </ui:ForEachRow>
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[in_CDCDataDeathsDT]" DisplayName="For Each Row - Populate CDC Death Count Data" sap:VirtualizedContainerService.HintSize="436.666666666667,306.666666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_4">
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[in_CDCDataDeathsDT]" DisplayName="For Each Row - Populate CDC Death Count Data" sap:VirtualizedContainerService.HintSize="354.666666666667,306.666666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_4">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
@@ -136,105 +136,18 @@
                 <OutArgument x:TypeArguments="x:String">[CDCDeathCountHTML]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[String.Format(CDCDeathCountHTML + "&lt;li&gt;{0}: {1}&lt;/li&gt;", row(0), row(1))]</InArgument>
+                <InArgument x:TypeArguments="x:String">[String.Format(CDCDeathCountHTML + "&lt;tr&gt;&lt;td&gt;{0}&lt;/td&gt;&lt;td&gt;{1}&lt;/td&gt;&lt;/tr&gt;", row(0), row(1))]</InArgument>
               </Assign.Value>
             </Assign>
           </Sequence>
         </ActivityAction>
       </ui:ForEachRow.Body>
     </ui:ForEachRow>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436.666666666667,474" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="396.666666666667,395.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_17">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[in_WorldometerDataCasesDT.AsEnumerable.Take(5).CopyToDataTable]" DisplayName="For Each Row - Populate Worldometer Case Count Data" sap:VirtualizedContainerService.HintSize="354.666666666667,303.333333333333" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
-            <ui:ForEachRow.Body>
-              <ActivityAction x:TypeArguments="sd:DataRow">
-                <ActivityAction.Argument>
-                  <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
-                </ActivityAction.Argument>
-                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="304,154" sap2010:WorkflowViewState.IdRef="Sequence_14">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_3">
-                    <Assign.To>
-                      <OutArgument x:TypeArguments="x:String">[CountyCaseCountHTML]</OutArgument>
-                    </Assign.To>
-                    <Assign.Value>
-                      <InArgument x:TypeArguments="x:String">[String.Format(CountyCaseCountHTML + "&lt;li&gt;{0}: {1}&lt;/li&gt;", row(0), row(1))]</InArgument>
-                    </Assign.Value>
-                  </Assign>
-                </Sequence>
-              </ActivityAction>
-            </ui:ForEachRow.Body>
-          </ui:ForEachRow>
-        </Sequence>
-      </ui:CommentOut.Body>
-    </ui:CommentOut>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436.666666666667,474" sap2010:WorkflowViewState.IdRef="CommentOut_2">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="396.666666666667,395.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_18">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[in_WorldometerDataDeathsDT.AsEnumerable.Take(5).CopyToDataTable]" DisplayName="For Each Row - Populate Worldometer Death Count Data" sap:VirtualizedContainerService.HintSize="354.666666666667,303.333333333333" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
-            <ui:ForEachRow.Body>
-              <ActivityAction x:TypeArguments="sd:DataRow">
-                <ActivityAction.Argument>
-                  <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
-                </ActivityAction.Argument>
-                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="304,154" sap2010:WorkflowViewState.IdRef="Sequence_15">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_6">
-                    <Assign.To>
-                      <OutArgument x:TypeArguments="x:String">[CountyDeathCountHTML]</OutArgument>
-                    </Assign.To>
-                    <Assign.Value>
-                      <InArgument x:TypeArguments="x:String">[String.Format(CountyDeathCountHTML + "&lt;li&gt;{0}: {1}&lt;/li&gt;", row(0), row(1))]</InArgument>
-                    </Assign.Value>
-                  </Assign>
-                </Sequence>
-              </ActivityAction>
-            </ui:ForEachRow.Body>
-          </ui:ForEachRow>
-        </Sequence>
-      </ui:CommentOut.Body>
-    </ui:CommentOut>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436.666666666667,320" sap2010:WorkflowViewState.IdRef="CommentOut_3">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,241.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_19">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="[String.Format(emailTemplate, Today.ToString(&quot;MM/dd/yyyy&quot;), String.Format(&quot;&lt;ul&gt;{0}&lt;/ul&gt;&quot;, CDCCaseCountHTML), String.Format(&quot;&lt;ul&gt;{0}&lt;/ul&gt;&quot;, CDCDeathCountHTML), String.Format(&quot;&lt;ul&gt;{0}&lt;/ul&gt;&quot;, CountyCaseCountHTML), String.Format(&quot;&lt;ul&gt;{0}&lt;/ul&gt;&quot;, CountyDeathCountHTML))]" DisplayName="Send Outlook Mail Message - Info Update Email" sap:VirtualizedContainerService.HintSize="334,149.333333333333" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="True" IsDraft="False" Subject="[&quot;Coronavirus Informational Update: &quot; + Today.ToString(&quot;MM/dd/yyyy&quot;)]" To="[in_TransactionItem.SpecificContent(&quot;EmailAddress&quot;).ToString]">
-            <ui:SendOutlookMail.Files>
-              <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
-                <InArgument x:TypeArguments="x:String">[in_Config("HealthGuideFilePath").ToString]</InArgument>
-                <InArgument x:TypeArguments="x:String">[String.Format("{0}\Health-Centers-{1}-{2}-{3}.xlsx", in_Config("DownloadDirectoryName").ToString, Today.ToString("MM"), Today.ToString("dd"), Today.ToString("yyyy"))]</InArgument>
-              </scg:List>
-            </ui:SendOutlookMail.Files>
-          </ui:SendOutlookMail>
-        </Sequence>
-      </ui:CommentOut.Body>
-    </ui:CommentOut>
-    <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="[String.Format(emailTemplate, Today.ToString(&quot;MM/dd/yyyy&quot;), String.Format(&quot;&lt;ul&gt;{0}&lt;/ul&gt;&quot;, CDCCaseCountHTML), String.Format(&quot;&lt;ul&gt;{0}&lt;/ul&gt;&quot;, CDCDeathCountHTML), &quot;County Case Count&quot;, &quot;County Death Count&quot;)]" DisplayName="Send Outlook Mail Message - Info Update Email" sap:VirtualizedContainerService.HintSize="436.666666666667,149.333333333333" sap2010:WorkflowViewState.IdRef="SendOutlookMail_2" IsBodyHtml="True" IsDraft="False" Subject="[&quot;Coronavirus Informational Update: &quot; + Today.ToString(&quot;MM/dd/yyyy&quot;)]" To="[in_TransactionItem.SpecificContent(&quot;EmailAddress&quot;).ToString]">
+    <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="[String.Format(emailTemplate, Today.ToString(&quot;MM/dd/yyyy&quot;), CDCCaseCountHTML, CDCDeathCountHTML, &quot;&quot;, &quot;&quot;, in_TransactionItem.SpecificContent(&quot;Name&quot;).ToString, in_Config(&quot;WellnessFormURL&quot;).ToString, in_Config(&quot;UpdateInfoFormURL&quot;).ToString)]" DisplayName="Send Outlook Mail Message - Info Update Email" sap:VirtualizedContainerService.HintSize="354.666666666667,149.333333333333" sap2010:WorkflowViewState.IdRef="SendOutlookMail_2" IsBodyHtml="True" IsDraft="False" Subject="[&quot;Coronavirus Informational Update: &quot; + Today.ToString(&quot;MM/dd/yyyy&quot;)]" To="[in_TransactionItem.SpecificContent(&quot;EmailAddress&quot;).ToString]">
       <ui:SendOutlookMail.Files>
-        <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4" />
+        <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+          <InArgument x:TypeArguments="x:String">[in_Config("CDCDataFilePath").ToString]</InArgument>
+        </scg:List>
       </ui:SendOutlookMail.Files>
     </ui:SendOutlookMail>
   </Sequence>
