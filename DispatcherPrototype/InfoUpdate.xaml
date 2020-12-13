@@ -1,12 +1,13 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="InfoUpdate" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="InfoUpdate" this:InfoUpdate.in_StateNameAbbreviationLookup="Data\StateNameAbbreviationLookup.xlsx" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_DownloadDirectoryName" Type="InArgument(x:String)" />
     <x:Property Name="io_PeopleDT" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_StateNameAbbreviationLookup" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>538,1076.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1014.66666666667,3523.33333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>InfoUpdate_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
@@ -59,10 +60,12 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Download Update Your Information form response sheet on Google Forms, update PeopleDT with today's info update" DisplayName="Daily Information Update" sap:VirtualizedContainerService.HintSize="518,1016.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Download Update Your Information form response sheet on Google Forms, update PeopleDT with today's info update" DisplayName="Daily Information Update" sap:VirtualizedContainerService.HintSize="994.666666666667,3463.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="InfoUpdateDT" />
       <Variable x:TypeArguments="x:String" Name="InfoUpdateFormResponseSheetURL" />
+      <Variable x:TypeArguments="sd:DataTable" Name="StateNameAbbreviationDT" />
+      <Variable x:TypeArguments="x:String" Name="stateAbbreviation" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -70,7 +73,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Download Update Info Form Response Excel Workbook" sap:VirtualizedContainerService.HintSize="476,752.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <Sequence DisplayName="Download Update Info Form Response Excel Workbook" sap:VirtualizedContainerService.HintSize="952.666666666667,752.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -136,12 +139,141 @@
         </ui:OpenBrowser.Body>
       </ui:OpenBrowser>
     </Sequence>
-    <ui:ReadRange AddHeaders="True" DataTable="[InfoUpdateDT]" DisplayName="Read Range - Update Info Form Response .XLSX File" sap:VirtualizedContainerService.HintSize="476,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Form Responses" WorkbookPath="[String.Format(&quot;{0}\Update Your Information (Responses).xlsx&quot;, in_DownloadDirectoryName)]">
+    <ui:ReadRange AddHeaders="True" DataTable="[InfoUpdateDT]" DisplayName="Read Range - Update Info Form Response .XLSX File" sap:VirtualizedContainerService.HintSize="952.666666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Form Responses" WorkbookPath="[String.Format(&quot;{0}\Update Your Information (Responses).xlsx&quot;, in_DownloadDirectoryName)]">
       <ui:ReadRange.Range>
         <InArgument x:TypeArguments="x:String">
           <Literal x:TypeArguments="x:String" Value="" />
         </InArgument>
       </ui:ReadRange.Range>
     </ui:ReadRange>
+    <ui:ReadRange AddHeaders="True" DataTable="[StateNameAbbreviationDT]" DisplayName="Read Range - State Name/Abbreviation Lookup .XLSX File" sap:VirtualizedContainerService.HintSize="952.666666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="Sheet1" WorkbookPath="[in_StateNameAbbreviationLookup]">
+      <ui:ReadRange.Range>
+        <InArgument x:TypeArguments="x:String">
+          <Literal x:TypeArguments="x:String" Value="" />
+        </InArgument>
+      </ui:ReadRange.Range>
+    </ui:ReadRange>
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[InfoUpdateDT]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="952.666666666667,2294.66666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:ForEachRow.Body>
+        <ActivityAction x:TypeArguments="sd:DataRow">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="902,2142" sap2010:WorkflowViewState.IdRef="Sequence_8">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If Condition="[DateTime.Parse(row(&quot;Timestamp&quot;).ToString).Date = Today.Date]" sap:VirtualizedContainerService.HintSize="860,2050" sap2010:WorkflowViewState.IdRef="If_3">
+              <If.Then>
+                <Sequence DisplayName="Sequence - Update Info" sap:VirtualizedContainerService.HintSize="714,1896" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:Int32" Name="rowIndex" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LookupDataTable CellValue="{x:Null}" LookupColumnIndex="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[io_PeopleDT]" DisplayName="Lookup Data Table - Email Address" sap:VirtualizedContainerService.HintSize="672,22" sap2010:WorkflowViewState.IdRef="LookupDataTable_1" LookupColumnName="Email Address" LookupValue="[row(&quot;Email Address&quot;).ToString]" RowIndex="[rowIndex]" />
+                  <If Condition="[rowIndex &lt;&gt; -1]" sap:VirtualizedContainerService.HintSize="672,1742" sap2010:WorkflowViewState.IdRef="If_2">
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="526,1588" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If Condition="[row(&quot;Name&quot;).ToString.Equals(&quot;&quot;)]" sap:VirtualizedContainerService.HintSize="484,216" sap2010:WorkflowViewState.IdRef="If_4">
+                          <If.Else>
+                            <Assign DisplayName="Assign - Update Name" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_3">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:Object">[io_PeopleDT.Rows(rowIndex)("Name")]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:Object">[row("Name").ToString]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </If.Else>
+                        </If>
+                        <If Condition="[row(&quot;Zip Code&quot;).ToString.Equals(&quot;&quot;)]" sap:VirtualizedContainerService.HintSize="484,216" sap2010:WorkflowViewState.IdRef="If_1">
+                          <If.Else>
+                            <Assign DisplayName="Assign - Update Zip Code" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_2">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:Object">[io_PeopleDT.Rows(rowIndex)("Zip Code")]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:Object">[row("Zip Code").ToString]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </If.Else>
+                        </If>
+                        <If Condition="[row(&quot;County&quot;).ToString.Equals(&quot;&quot;)]" sap:VirtualizedContainerService.HintSize="484,216" sap2010:WorkflowViewState.IdRef="If_5">
+                          <If.Else>
+                            <Assign DisplayName="Assign - Update County" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_4">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:Object">[io_PeopleDT.Rows(rowIndex)("County")]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:Object">[row("County").ToString]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </If.Else>
+                        </If>
+                        <If Condition="[row(&quot;City&quot;).ToString.Equals(&quot;&quot;)]" sap:VirtualizedContainerService.HintSize="484,216" sap2010:WorkflowViewState.IdRef="If_6">
+                          <If.Else>
+                            <Assign DisplayName="Assign - Update City" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_5">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:Object">[io_PeopleDT.Rows(rowIndex)("City")]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:Object">[row("City").ToString]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </If.Else>
+                        </If>
+                        <If Condition="[row(&quot;State&quot;).ToString.Equals(&quot;&quot;)]" sap:VirtualizedContainerService.HintSize="484,472" sap2010:WorkflowViewState.IdRef="If_7">
+                          <If.Else>
+                            <Sequence sap:VirtualizedContainerService.HintSize="304,318" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign DisplayName="Assign - Update State Name" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_6">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:Object">[io_PeopleDT.Rows(rowIndex)("State Name")]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:Object">[row("State").ToString]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <ui:LookupDataTable LookupColumnIndex="{x:Null}" LookupDataColumn="{x:Null}" RowIndex="{x:Null}" TargetColumnIndex="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[StateNameAbbreviationDT]" DisplayName="Lookup Data Table - State Name/Abbreviation" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="LookupDataTable_2" LookupColumnName="State Name" LookupValue="[row(&quot;State&quot;).ToString]" TargetColumnName="State Abbreviation">
+                                <ui:LookupDataTable.CellValue>
+                                  <OutArgument x:TypeArguments="x:String">[stateAbbreviation]</OutArgument>
+                                </ui:LookupDataTable.CellValue>
+                              </ui:LookupDataTable>
+                              <Assign DisplayName="Assign - Update State Abbreviation" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_9">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:Object">[io_PeopleDT.Rows(rowIndex)("State Abbreviation")]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:Object">[stateAbbreviation]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                      </Sequence>
+                    </If.Then>
+                  </If>
+                </Sequence>
+              </If.Then>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEachRow.Body>
+    </ui:ForEachRow>
   </Sequence>
 </Activity>
