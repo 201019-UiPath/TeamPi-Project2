@@ -3,6 +3,7 @@
   "description": "Blank Library",
   "main": "NewActivity.xaml",
   "dependencies": {
+    "BalaReva.EasyExcel.Activities": "28.0.2",
     "BalaReva.Excel.Activities": "2020.3.0",
     "UiPath.Excel.Activities": "2.7.2",
     "UiPath.Mail.Activities": "1.7.2",
