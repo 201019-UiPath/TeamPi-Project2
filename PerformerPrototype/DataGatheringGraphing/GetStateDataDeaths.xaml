@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="GetStateData" this:GetStateData.in_StateAbbr="FL" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:j="clr-namespace:JsonDataConversion;assembly=JsonDataConversion" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="GetStateData" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:j="clr-namespace:JsonDataConversion;assembly=JsonDataConversion" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_StateAbbr" Type="InArgument(x:String)" />
     <x:Property Name="out_CDCDataDeaths" Type="OutArgument(sd:DataTable)" />
@@ -9,7 +9,7 @@
   <sap:VirtualizedContainerService.HintSize>458.666666666667,1214.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetStateData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="23">
+    <scg:List x:TypeArguments="x:String" Capacity="22">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -32,11 +32,10 @@
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>System.Windows.Markup</x:String>
       <x:String>System.Xml.Serialization</x:String>
-      <x:String>UiPath.Excel</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="25">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="44">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -59,8 +58,6 @@
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
@@ -76,7 +73,6 @@
         <Variable x:TypeArguments="x:String" Name="Beginning" />
         <Variable x:TypeArguments="x:String" Name="Ending" />
         <Variable x:TypeArguments="x:String" Name="Json" />
-        <Variable x:TypeArguments="sd:DataTable" Name="CDCDataDeaths" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -155,7 +151,7 @@
                   <OutArgument x:TypeArguments="x:Object">[row("new_death")]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
-                  <InArgument x:TypeArguments="x:Object">[double.Parse(row("new_death").ToString)]</InArgument>
+                  <InArgument x:TypeArguments="x:Object">[Double.Parse(row("new_death").ToString)]</InArgument>
                 </Assign.Value>
               </Assign>
             </Sequence>
