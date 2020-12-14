@@ -150,8 +150,8 @@
 row(0),
 row(1),
 If(row(2).ToString.Equals(""), "0", row(2).ToString),
-If(row(3).ToString.Equals(""), "0", row(2).ToString),
-If(row(4).ToString.Equals(""), "0", row(2).ToString),
+If(row(3).ToString.Equals(""), "0", row(3).ToString),
+If(row(4).ToString.Equals(""), "0", row(4).ToString),
 If(row(5).ToString.Equals(""), "", String.Format("&lt;li&gt;{0}.{1}% bed utilization&lt;/li&gt;", row(5).ToString.Substring(2,2), row(5).ToString.Substring(4,2)))))]</InArgument>
               </Assign.Value>
             </Assign>
