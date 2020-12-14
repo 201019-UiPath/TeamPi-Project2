@@ -14,7 +14,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>548,869.333333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>548,882</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ChartCDCData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -67,52 +67,50 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ChartCDCData" sap:VirtualizedContainerService.HintSize="528,769.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ChartCDCData" sap:VirtualizedContainerService.HintSize="528,822" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Sequence - Write CDC State Case/Death Count Data to CDCData.XLSX" sap:VirtualizedContainerService.HintSize="486,361.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <ui:WriteRange AddHeaders="True" DataTable="[in_CDCDataCasesDT]" DisplayName="Write Range - CDC State Case Count Data Sheet" sap:VirtualizedContainerService.HintSize="334,114.666666666667" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="CDC State Case Count Data" WorkbookPath="[in_Config(&quot;CDCDataFilePath&quot;).ToString]">
-        <ui:WriteRange.StartingCell>
-          <InArgument x:TypeArguments="x:String">
-            <Literal x:TypeArguments="x:String" Value="" />
-          </InArgument>
-        </ui:WriteRange.StartingCell>
-      </ui:WriteRange>
-      <ui:WriteRange AddHeaders="True" DataTable="[in_CDCDataDeathsDT]" DisplayName="Write Range - CDC State Death Count Data Sheet" sap:VirtualizedContainerService.HintSize="334,114.666666666667" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="CDC State Death Count Data" WorkbookPath="[in_Config(&quot;CDCDataFilePath&quot;).ToString]">
-        <ui:WriteRange.StartingCell>
-          <InArgument x:TypeArguments="x:String">
-            <Literal x:TypeArguments="x:String" Value="" />
-          </InArgument>
-        </ui:WriteRange.StartingCell>
-      </ui:WriteRange>
-    </Sequence>
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="486,414" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" MacroSetting="ReadFromExcelSettings" WorkbookPath="[in_Config(&quot;CDCDataFilePath&quot;).ToString]">
+      <ui:ExcelApplicationScope.Body>
+        <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do - Write CDC State Case/Death Count Data to CDCData.XLSX" sap:VirtualizedContainerService.HintSize="376,305.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_11">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ExcelWriteRange AddHeaders="True" DataTable="[in_CDCDataCasesDT]" DisplayName="Write Range - CDC State Case Count Data Sheet" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_1" SheetName="CDC State Case Count Data" StartingCell="A1" />
+            <ui:ExcelWriteRange AddHeaders="True" DataTable="[in_CDCDataDeathsDT]" DisplayName="Write Range - CDC State Death Count Data Sheet" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_2" SheetName="CDC State Death Count Data" StartingCell="A1" />
+          </Sequence>
+        </ActivityAction>
+      </ui:ExcelApplicationScope.Body>
+    </ui:ExcelApplicationScope>
     <Sequence DisplayName="Sequence - Chart CDC State Case/Death Count Data" sap:VirtualizedContainerService.HintSize="486,276" sap2010:WorkflowViewState.IdRef="Sequence_9">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <bec:ColumnChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" ImageCopy="{x:Null}" ModifyPassword="{x:Null}" CellRange="$A$2:$B$8" ChartTitle="[&quot;CDC Case Count in &quot; + in_TransactionItem.SpecificContent(&quot;State&quot;).ToString]" ChartType="ColumnClustered" ContinueOnError="False" Delay="3" DisplayName="Column Chart - CDC State Case Count" FilePath="[in_Config(&quot;CDCDataFilePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="444,72" sap2010:WorkflowViewState.IdRef="ColumnChart_5" LegendRange="$B$1:$B$8" SheetName="CDC State Case Count Data" ShowLegendKey="True" ShowValuePosition="OutsideEnd" ShowValueTextOrientation="Horizontal">
+      <bec:ColumnChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" CellRange="A1:B7" ChartTitle="[&quot;New Coronavirus Case Count in &quot; + in_TransactionItem.SpecificContent(&quot;State&quot;).ToString]" ChartType="ColumnClustered" ContinueOnError="True" Delay="3" DisplayName="Column Chart - CDC State Case Count" FilePath="[in_Config(&quot;CDCDataFilePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="444,72" sap2010:WorkflowViewState.IdRef="ColumnChart_6" ImageCopy="[String.Format(&quot;{0}\CDCStateCaseCount.png&quot;, in_Config(&quot;OutputDirectoryName&quot;).ToString)]" LegendRange="B2:B7" SheetName="CDC State Case Count Data" ShowLegendKey="False" ShowValuePosition="OutsideEnd" ShowValueTextOrientation="Horizontal">
         <bec:ColumnChart.Options>
-          <bec:ShowOptions AutoText="False" DataLabelsType="ShowNone" HasLeaderLines="False" LegendKey="ShowNone" Separator="" ShowBubbleSize="False" ShowCategoryName="False" ShowLegend="False" ShowPercentage="False" ShowSeriesName="False" ShowValue="False" />
+          <bec:ShowOptions AutoText="True" DataLabelsType="ShowLabel" HasLeaderLines="False" LegendKey="ShowNone" Separator="" ShowBubbleSize="False" ShowCategoryName="False" ShowLegend="False" ShowPercentage="False" ShowSeriesName="False" ShowValue="False" />
         </bec:ColumnChart.Options>
         <bec:ColumnChart.Size>
           <bec:ChartSize Height="250" Left="50" Top="50" Width="250" />
         </bec:ColumnChart.Size>
       </bec:ColumnChart>
-      <bec:ColumnChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" ImageCopy="{x:Null}" ModifyPassword="{x:Null}" CellRange="$A$2:$B$8" ChartTitle="[&quot;CDC Death Count in &quot; + in_TransactionItem.SpecificContent(&quot;State&quot;).ToString]" ChartType="ColumnClustered" ContinueOnError="False" Delay="3" DisplayName="Column Chart - CDC State Death Count" FilePath="[in_Config(&quot;CDCDataFilePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="444,72" sap2010:WorkflowViewState.IdRef="ColumnChart_2" LegendRange="$B$1:$B$8" SheetName="CDC State Death Count Data" ShowLegendKey="True" ShowValuePosition="OutsideEnd" ShowValueTextOrientation="Horizontal">
+      <bec:ColumnChart ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" CellRange="A1:B7" ChartTitle="[&quot;New Coronavirus Death Count in &quot; + in_TransactionItem.SpecificContent(&quot;State&quot;).ToString]" ChartType="ColumnClustered" ContinueOnError="True" Delay="3" DisplayName="Column Chart - CDC State Death Count" FilePath="[in_Config(&quot;CDCDataFilePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="444,72" sap2010:WorkflowViewState.IdRef="ColumnChart_7" ImageCopy="[String.Format(&quot;{0}\CDCStateDeathCount.png&quot;, in_Config(&quot;OutputDirectoryName&quot;).ToString)]" LegendRange="B2:B7" SheetName="CDC State Death Count Data" ShowLegendKey="False" ShowValuePosition="OutsideEnd" ShowValueTextOrientation="Horizontal">
         <bec:ColumnChart.Options>
-          <bec:ShowOptions AutoText="False" DataLabelsType="ShowNone" HasLeaderLines="False" LegendKey="ShowNone" Separator="" ShowBubbleSize="False" ShowCategoryName="False" ShowLegend="False" ShowPercentage="False" ShowSeriesName="False" ShowValue="False" />
+          <bec:ShowOptions AutoText="True" DataLabelsType="ShowLabel" HasLeaderLines="False" LegendKey="ShowNone" Separator="" ShowBubbleSize="False" ShowCategoryName="False" ShowLegend="False" ShowPercentage="False" ShowSeriesName="False" ShowValue="False" />
         </bec:ColumnChart.Options>
         <bec:ColumnChart.Size>
           <bec:ChartSize Height="250" Left="50" Top="50" Width="250" />
