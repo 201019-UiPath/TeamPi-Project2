@@ -10,7 +10,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>488.666666666667,2722</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>488.666666666667,2682</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
@@ -245,7 +245,7 @@ If(row(5).ToString.Equals(""), "", String.Format("&lt;li&gt;{0}.{1}% bed utiliza
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEachRow>
-    <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="[String.Format(emailTemplate, Today.ToString(&quot;MM/dd/yyyy&quot;), String.Format(&quot;&lt;ul&gt;{0}&lt;/ul&gt;&quot;, healthCenterHTML), String.Format(&quot;&lt;ul&gt;{0}&lt;/ul&gt;&quot;, hospitalBedHTML), testingSiteHTML, telehealthSiteHTML, in_TransactionItem.SpecificContent(&quot;Name&quot;).ToString, in_Config(&quot;WellnessFormURL&quot;).ToString, in_Config(&quot;UpdateInfoFormURL&quot;).ToString)]" DisplayName="Send Outlook Mail Message - Health Guide Email" sap:VirtualizedContainerService.HintSize="426.666666666667,149.333333333333" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="True" IsDraft="False" Subject="[&quot;Coronavirus Health Guide: &quot; + Today.ToString(&quot;MM/dd/yyyy&quot;)]" To="[in_TransactionItem.SpecificContent(&quot;EmailAddress&quot;).ToString]">
+    <ui:SendOutlookMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Account="[in_Config(&quot;EmailAccountName&quot;).ToString]" Body="[String.Format(emailTemplate, Today.ToString(&quot;MM/dd/yyyy&quot;), String.Format(&quot;&lt;ul&gt;{0}&lt;/ul&gt;&quot;, healthCenterHTML), String.Format(&quot;&lt;ul&gt;{0}&lt;/ul&gt;&quot;, hospitalBedHTML), testingSiteHTML, telehealthSiteHTML, in_TransactionItem.SpecificContent(&quot;Name&quot;).ToString, in_Config(&quot;WellnessFormURL&quot;).ToString, in_Config(&quot;UpdateInfoFormURL&quot;).ToString)]" DisplayName="Send Outlook Mail Message - Health Guide Email" sap:VirtualizedContainerService.HintSize="426.666666666667,149.333333333333" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="True" IsDraft="False" Subject="[&quot;Coronavirus Health Guide: &quot; + Today.ToString(&quot;MM/dd/yyyy&quot;)]" To="[in_TransactionItem.SpecificContent(&quot;EmailAddress&quot;).ToString]">
       <ui:SendOutlookMail.Files>
         <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
           <InArgument x:TypeArguments="x:String">[in_Config("HealthGuideFilePath").ToString]</InArgument>
