@@ -11,6 +11,22 @@
           "lib/Net40/ICSharpCode.AvalonEdit.dll": {}
         }
       },
+      "BalaReva.Excel.Activities/2020.3.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Office.Interop.Excel": "15.0.4795.1000",
+          "MicrosoftOfficeCore": "15.0.0"
+        },
+        "compile": {
+          "lib/_._": {}
+        },
+        "runtime": {
+          "lib/BalaReva.Excel.Base.dll": {},
+          "lib/BalaReva.Excel.Design.dll": {},
+          "lib/BalaReva.Excel.Utilities.dll": {},
+          "lib/BalaReva.Excel.dll": {}
+        }
+      },
       "BouncyCastle/1.8.5": {
         "type": "package",
         "compile": {
@@ -269,6 +285,15 @@
           "lib/net45/Microsoft.Identity.Client.dll": {}
         }
       },
+      "Microsoft.Office.Interop.Excel/15.0.4795.1000": {
+        "type": "package",
+        "compile": {
+          "lib/net20/_._": {}
+        },
+        "runtime": {
+          "lib/net20/Microsoft.Office.Interop.Excel.dll": {}
+        }
+      },
       "Microsoft.Rest.ClientRuntime/2.3.20": {
         "type": "package",
         "dependencies": {
@@ -295,6 +320,15 @@
         },
         "runtime": {
           "lib/Microsoft.VisualStudio.OLE.Interop.dll": {}
+        }
+      },
+      "MicrosoftOfficeCore/15.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net35/_._": {}
+        },
+        "runtime": {
+          "lib/net35/Office.dll": {}
         }
       },
       "Newtonsoft.Json/11.0.2": {
@@ -1093,6 +1127,18 @@
             "locale": "zh-CN"
           }
         }
+      },
+      "UiPathTeam.JsonDataConverter.Activities/1.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "10.0.3"
+        },
+        "compile": {
+          "lib/_._": {}
+        },
+        "runtime": {
+          "lib/JsonDataConversion.dll": {}
+        }
       }
     }
   },
@@ -1110,6 +1156,21 @@
         "lib/Net35/ICSharpCode.AvalonEdit.xml",
         "lib/Net40/ICSharpCode.AvalonEdit.dll",
         "lib/Net40/ICSharpCode.AvalonEdit.xml"
+      ]
+    },
+    "BalaReva.Excel.Activities/2020.3.0": {
+      "sha512": "jCoxSXxATrooL87t6aeeV4kYcxIX5vHxI4wa8lPX+C7MMJV+aIojRllfx7z2e6/yvOm7hQnoi0YHyLa0xUn6OA==",
+      "type": "package",
+      "path": "balareva.excel.activities/2020.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "balareva.excel.activities.2020.3.0.nupkg.sha512",
+        "balareva.excel.activities.nuspec",
+        "lib/BalaReva.Excel.Base.dll",
+        "lib/BalaReva.Excel.Design.dll",
+        "lib/BalaReva.Excel.Utilities.dll",
+        "lib/BalaReva.Excel.dll"
       ]
     },
     "BouncyCastle/1.8.5": {
@@ -1477,6 +1538,18 @@
         "ref/xamarinmac20/Microsoft.Identity.Client.xml"
       ]
     },
+    "Microsoft.Office.Interop.Excel/15.0.4795.1000": {
+      "sha512": "DfceS96ustwfL8EOJNNRtpk6b0RylhjNpgeeemuvi9X4GYks2UTeAimjSrdFEfuqRo5ibZ4Sd0gJIeDr9gMa6Q==",
+      "type": "package",
+      "path": "microsoft.office.interop.excel/15.0.4795.1000",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/Microsoft.Office.Interop.Excel.dll",
+        "microsoft.office.interop.excel.15.0.4795.1000.nupkg.sha512",
+        "microsoft.office.interop.excel.nuspec"
+      ]
+    },
     "Microsoft.Rest.ClientRuntime/2.3.20": {
       "sha512": "bw/H1nO4JdnhTagPHWIFQwtlQ6rb2jqw5RTrqPsPqzrjhJxc7P6MyNGdf4pgHQdzdpBSNOfZTEQifoUkxmzYXQ==",
       "type": "package",
@@ -1511,6 +1584,18 @@
         "lib/Microsoft.VisualStudio.OLE.Interop.xml",
         "microsoft.visualstudio.ole.interop.7.10.6071.nupkg.sha512",
         "microsoft.visualstudio.ole.interop.nuspec"
+      ]
+    },
+    "MicrosoftOfficeCore/15.0.0": {
+      "sha512": "/KgYw8uvv0Ut8FPvyEa1XJ/TrLSRgvTv3JgC2IT0/8NwoICzbEJWfmfwsE6Dwi8WH0jVkTEO7zRvGvaKqUOhqQ==",
+      "type": "package",
+      "path": "microsoftofficecore/15.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/Office.dll",
+        "microsoftofficecore.15.0.0.nupkg.sha512",
+        "microsoftofficecore.nuspec"
       ]
     },
     "Newtonsoft.Json/11.0.2": {
@@ -2128,33 +2213,51 @@
         "uipath.webapi.activities.1.6.0.nupkg.sha512",
         "uipath.webapi.activities.nuspec"
       ]
+    },
+    "UiPathTeam.JsonDataConverter.Activities/1.1.0": {
+      "sha512": "BgCUX/ZKR2gfSUnxXeyUWSGPDCisujgpYRGj5LzOH2Yc30LG+rNgUsDY/AvBMHzztjIjpGtR131z/JHO2MQJzQ==",
+      "type": "package",
+      "path": "uipathteam.jsondataconverter.activities/1.1.0",
+      "files": [
+        ".nupkg.metadata",
+        "lib/JsonDataConversion.dll",
+        "uipathteam.jsondataconverter.activities.1.1.0.nupkg.sha512",
+        "uipathteam.jsondataconverter.activities.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "": [],
     ".NETFramework,Version=v4.6.1": [
+      "BalaReva.Excel.Activities >= 2020.3.0 <= 2020.3.0",
       "UiPath.Credentials.Activities >= 1.1.6479.13204 <= 1.1.6479.13204",
       "UiPath.Excel.Activities >= 2.7.2 <= 2.7.2",
       "UiPath.Mail.Activities >= 1.9.3 <= 1.9.3",
       "UiPath.System.Activities >= 19.10.1 <= 19.10.1",
       "UiPath.UIAutomation.Activities >= 19.11.3 <= 19.11.3",
-      "UiPath.WebAPI.Activities >= 1.6.0 <= 1.6.0"
+      "UiPath.WebAPI.Activities >= 1.6.0 <= 1.6.0",
+      "UiPathTeam.JsonDataConverter.Activities >= 1.1.0 <= 1.1.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\angel\\.nuget\\packages\\": {}
+    "C:\\Users\\nfh22\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "WorkingPrototype",
       "projectName": "WorkingPrototype",
-      "projectPath": "C:\\Users\\angel\\OneDrive\\Documents\\UiPath\\WorkingPrototype\\.local",
-      "packagesPath": "C:\\Users\\angel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\angel\\OneDrive\\Documents\\UiPath\\WorkingPrototype\\.local"
+      "projectPath": "C:\\Users\\nfh22\\OneDrive\\Desktop\\Team Pi\\PerformerPrototype\\.local",
+      "packagesPath": "C:\\Users\\nfh22\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\nfh22\\OneDrive\\Desktop\\Team Pi\\PerformerPrototype\\.local"
     },
     "frameworks": {
       "net461": {
         "dependencies": {
+          "BalaReva.Excel.Activities": {
+            "include": "Runtime",
+            "target": "Package",
+            "version": "[2020.3.0, 2020.3.0]"
+          },
           "UiPath.Credentials.Activities": {
             "include": "Runtime",
             "target": "Package",
@@ -2184,6 +2287,11 @@
             "include": "Runtime",
             "target": "Package",
             "version": "[1.6.0, 1.6.0]"
+          },
+          "UiPathTeam.JsonDataConverter.Activities": {
+            "include": "Runtime",
+            "target": "Package",
+            "version": "[1.1.0, 1.1.0]"
           }
         }
       }
