@@ -10,11 +10,14 @@
     <x:Property Name="io_CDCDataDeathsDT" Type="InOutArgument(sd:DataTable)" />
     <x:Property Name="io_CDCDataCasesDT" Type="InOutArgument(sd:DataTable)" />
     <x:Property Name="io_CountyDataCasesDT" Type="InOutArgument(sd:DataTable)" />
+    <x:Property Name="io_FDAVaccineDT" Type="InOutArgument(sd:DataTable)" />
+    <x:Property Name="io_NYTUpdateDT" Type="InOutArgument(sd:DataTable)" />
+    <x:Property Name="io_NYTVaccineDT" Type="InOutArgument(sd:DataTable)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>860,856.666666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>860,816.666666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
@@ -94,6 +97,9 @@
               <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_CDCDataDeathsDT">[io_CDCDataDeathsDT]</OutArgument>
               <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_CDCDataCasesDT">[io_CDCDataCasesDT]</OutArgument>
               <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_CountyDataCasesDT">[io_CountyDataCasesDT]</OutArgument>
+              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_FDAVaccineDT">[io_FDAVaccineDT]</OutArgument>
+              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_NYTUpdateDT">[io_NYTUpdateDT]</OutArgument>
+              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_NYTVaccineDT">[io_NYTVaccineDT]</OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ChartCDCData workflow" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="DataGatheringGraphing\ChartCDCData.xaml">
@@ -112,6 +118,9 @@
               <InArgument x:TypeArguments="sd:DataTable" x:Key="in_CDCDataDeathsDT">[io_CDCDataDeathsDT]</InArgument>
               <InArgument x:TypeArguments="sd:DataTable" x:Key="in_WorldometerDataCasesDT">[io_CountyDataCasesDT]</InArgument>
               <InArgument x:TypeArguments="sd:DataTable" x:Key="in_WorldometerDataDeathsDT">[io_CountyDataDeathsDT]</InArgument>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_FDAVaccineDT">[io_FDAVaccineDT]</InArgument>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_NYTUpdateDT">[io_NYTUpdateDT]</InArgument>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_NYTVaccineDT">[io_NYTVaccineDT]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
         </Sequence>
