@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>690.666666666667,1773.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>598,1221.33333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>HRSAHealthCenter_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -56,41 +56,33 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Scrape HRSA Health Center data based on the person's zip code, save .XLSX of detailed HRSA data" DisplayName="HRSA Health Center Data" sap:VirtualizedContainerService.HintSize="670.666666666667,1713.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_7">
-    <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Name="zipCode" />
-      <Variable x:TypeArguments="x:String" Name="healthCenterSite" />
-      <Variable x:TypeArguments="x:String" Name="healthCenterLocation" />
-    </Sequence.Variables>
+  <Sequence sap2010:Annotation.AnnotationText="Scrape HRSA Health Center data based on the person's zip code, save .XLSX of detailed HRSA data" DisplayName="HRSA Health Center Data" sap:VirtualizedContainerService.HintSize="578,1161.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_7">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser - HRSA Website" sap:VirtualizedContainerService.HintSize="628.666666666667,1590.66666666667" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="https://findahealthcenter.hrsa.gov/">
+    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser - HRSA Website" sap:VirtualizedContainerService.HintSize="536,1038.66666666667" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="https://findahealthcenter.hrsa.gov/">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence sap:VirtualizedContainerService.HintSize="594.666666666667,1492" sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <Sequence sap:VirtualizedContainerService.HintSize="502,940" sap2010:WorkflowViewState.IdRef="Sequence_9">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="552.666666666667,22" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
-            <Sequence DisplayName="HRSA Website Search" sap:VirtualizedContainerService.HintSize="552.666666666667,1276" sap2010:WorkflowViewState.IdRef="Sequence_3">
-              <Sequence.Variables>
-                <Variable x:TypeArguments="sd:DataTable" Name="ExcelDataTable" />
-              </Sequence.Variables>
+            <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="460,22" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
+            <Sequence DisplayName="HRSA Website Search" sap:VirtualizedContainerService.HintSize="460,724" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item - Search Radius Dropdown" sap:VirtualizedContainerService.HintSize="510.666666666667,96" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="10 miles">
+              <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item - Search Radius Dropdown" sap:VirtualizedContainerService.HintSize="418,96" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="10 miles">
                 <ui:SelectItem.Items>
                   <scg:List x:TypeArguments="x:String" Capacity="16">
                     <x:String>5 miles</x:String>
@@ -112,7 +104,7 @@
                   </ui:Target>
                 </ui:SelectItem.Target>
               </ui:SelectItem>
-              <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="Type Into - Zip Code" EmptyField="True" sap:VirtualizedContainerService.HintSize="510.666666666667,96" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="False" SimulateType="False" Text="[in_ZipCode+ &quot;[k(enter)]&quot;]">
+              <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="Type Into - Zip Code" EmptyField="True" sap:VirtualizedContainerService.HintSize="418,96" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="False" SimulateType="False" Text="[in_ZipCode+ &quot;[k(enter)]&quot;]">
                 <ui:TypeInto.Target>
                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="&lt;webctrl parentid='searchWidget' tag='INPUT' /&gt;">
                     <ui:Target.TimeoutMS>
@@ -124,7 +116,7 @@
                   </ui:Target>
                 </ui:TypeInto.Target>
               </ui:TypeInto>
-              <ui:Click DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayBefore="5000" DisplayName="Click XLSX Button" sap:VirtualizedContainerService.HintSize="510.666666666667,68" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayBefore="5000" DisplayName="Click XLSX Button" sap:VirtualizedContainerService.HintSize="418,68" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
                 <ui:Click.CursorPosition>
                   <ui:CursorPosition Position="Center">
                     <ui:CursorPosition.OffsetX>
@@ -146,19 +138,19 @@
                   </ui:Target>
                 </ui:Click.Target>
               </ui:Click>
-              <Sequence DisplayName="Data Scraping" sap:VirtualizedContainerService.HintSize="510.666666666667,804" sap2010:WorkflowViewState.IdRef="Sequence_6">
+              <Sequence DisplayName="Data Scraping" sap:VirtualizedContainerService.HintSize="418,252" sap2010:WorkflowViewState.IdRef="Sequence_6">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="468.666666666667,712" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,160" sap2010:WorkflowViewState.IdRef="Sequence_5">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[out_HRSAHealthCenterDT]" DisplayName="Extract Structured Data - Health Center Data" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='health-center'/&gt;&lt;webctrl tag='li' class='result-item location-item' idx='1'/&gt;&lt;/row&gt;&lt;column exact='1' name='Health Center Location' attr='text'&gt;&lt;webctrl tag='health-center'/&gt;&lt;webctrl tag='li' class='result-item location-item' idx='1'/&gt;&lt;webctrl tag='div' class='locationName' idx='1'/&gt;&lt;/column&gt;&lt;column exact='1' name='Health Center Address' attr='text'&gt;&lt;webctrl tag='health-center'/&gt;&lt;webctrl tag='li' class='result-item location-item' idx='1'/&gt;&lt;webctrl tag='div' class='address-city' idx='1'/&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="426.666666666667,68" sap2010:WorkflowViewState.IdRef="ExtractData_1" MaxNumberOfResults="100" SimulateClick="True">
+                  <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[out_HRSAHealthCenterDT]" DisplayName="Extract Structured Data - Health Center Data" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='health-center'/&gt;&lt;webctrl tag='li' class='result-item location-item' idx='1'/&gt;&lt;/row&gt;&lt;column exact='1' name='Health Center Location' attr='text'&gt;&lt;webctrl tag='health-center'/&gt;&lt;webctrl tag='li' class='result-item location-item' idx='1'/&gt;&lt;webctrl tag='div' class='locationName' idx='1'/&gt;&lt;/column&gt;&lt;column exact='1' name='Health Center Address' attr='text'&gt;&lt;webctrl tag='health-center'/&gt;&lt;webctrl tag='li' class='result-item location-item' idx='1'/&gt;&lt;webctrl tag='div' class='address-city' idx='1'/&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="ExtractData_1" MaxNumberOfResults="100" SimulateClick="True">
                     <ui:ExtractData.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="&lt;html app='chrome.exe' title='Find a Health Center' /&gt;&lt;webctrl tag='SEARCH-PANEL' /&gt;" WaitForReady="COMPLETE">
                         <ui:Target.TimeoutMS>
@@ -173,37 +165,10 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:ExtractData>
-                  <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[out_HRSAHealthCenterDT]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="426.666666666667,512" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
-                    <ui:ForEachRow.Body>
-                      <ActivityAction x:TypeArguments="sd:DataRow">
-                        <ActivityAction.Argument>
-                          <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
-                        </ActivityAction.Argument>
-                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,362.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <ui:GetRowItem Column="{x:Null}" ColumnName="{x:Null}" ColumnIndex="0" DisplayName="Get Row Item - Health Center Site" sap:VirtualizedContainerService.HintSize="334,64" sap2010:WorkflowViewState.IdRef="GetRowItem_3" Row="[row]">
-                            <ui:GetRowItem.Value>
-                              <OutArgument x:TypeArguments="x:String">[healthCenterSite]</OutArgument>
-                            </ui:GetRowItem.Value>
-                          </ui:GetRowItem>
-                          <ui:GetRowItem Column="{x:Null}" ColumnName="{x:Null}" ColumnIndex="1" DisplayName="Get Row Item - Health Center Location" sap:VirtualizedContainerService.HintSize="334,64" sap2010:WorkflowViewState.IdRef="GetRowItem_4" Row="[row]">
-                            <ui:GetRowItem.Value>
-                              <OutArgument x:TypeArguments="x:String">[healthCenterLocation]</OutArgument>
-                            </ui:GetRowItem.Value>
-                          </ui:GetRowItem>
-                          <WriteLine DisplayName="Write Line - Health Center Site Data" sap:VirtualizedContainerService.HintSize="334,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[&quot;Health Center Site: &quot; + healthCenterSite + &quot;, Health Center Location: &quot; + healthCenterLocation]" />
-                        </Sequence>
-                      </ActivityAction>
-                    </ui:ForEachRow.Body>
-                  </ui:ForEachRow>
                 </Sequence>
               </Sequence>
             </Sequence>
-            <ui:CloseTab Browser="{x:Null}" DisplayName="Close Tab" sap:VirtualizedContainerService.HintSize="552.666666666667,22" sap2010:WorkflowViewState.IdRef="CloseTab_2" />
+            <ui:CloseTab Browser="{x:Null}" DisplayName="Close Tab" sap:VirtualizedContainerService.HintSize="460,22" sap2010:WorkflowViewState.IdRef="CloseTab_2" />
           </Sequence>
         </ActivityAction>
       </ui:OpenBrowser.Body>
