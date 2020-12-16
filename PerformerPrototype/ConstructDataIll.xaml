@@ -102,21 +102,21 @@
         <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_ESRIHospitalBedDT">[ESRIHospitalBedDT]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:WriteRange AddHeaders="True" DataTable="[SolvHealthTestingDT]" DisplayName="Write Range - Solv Health Testing Data Sheet" sap:VirtualizedContainerService.HintSize="334,114.666666666667" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Solv Health Testing Data" WorkbookPath="Data\Output\HealthGuide.xlsx">
+    <ui:WriteRange AddHeaders="True" DataTable="[SolvHealthTestingDT]" DisplayName="Write Range - Solv Health Testing Data Sheet" sap:VirtualizedContainerService.HintSize="334,114.666666666667" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Solv Health Testing Data" WorkbookPath="[in_Config(&quot;HealthGuideFilePath&quot;).ToString]">
       <ui:WriteRange.StartingCell>
         <InArgument x:TypeArguments="x:String">
           <Literal x:TypeArguments="x:String" Value="" />
         </InArgument>
       </ui:WriteRange.StartingCell>
     </ui:WriteRange>
-    <ui:WriteRange AddHeaders="True" DataTable="[SolvHealthTelehealthDT]" DisplayName="Write Range - Solv Health Telehealth Data Sheet" sap:VirtualizedContainerService.HintSize="334,114.666666666667" sap2010:WorkflowViewState.IdRef="WriteRange_4" SheetName="Solv Health Telehealth Data" WorkbookPath="Data\Output\HealthGuide.xlsx">
+    <ui:WriteRange AddHeaders="True" DataTable="[SolvHealthTelehealthDT]" DisplayName="Write Range - Solv Health Telehealth Data Sheet" sap:VirtualizedContainerService.HintSize="334,114.666666666667" sap2010:WorkflowViewState.IdRef="WriteRange_4" SheetName="Solv Health Telehealth Data" WorkbookPath="[in_Config(&quot;HealthGuideFilePath&quot;).ToString]">
       <ui:WriteRange.StartingCell>
         <InArgument x:TypeArguments="x:String">
           <Literal x:TypeArguments="x:String" Value="" />
         </InArgument>
       </ui:WriteRange.StartingCell>
     </ui:WriteRange>
-    <ui:WriteRange AddHeaders="True" DataTable="[ESRIHospitalBedDT]" DisplayName="Write Range - ESRI Hospital Bed Data Sheet" sap:VirtualizedContainerService.HintSize="334,114.666666666667" sap2010:WorkflowViewState.IdRef="WriteRange_5" SheetName="ESRI Hospital Bed Data" WorkbookPath="Data\Output\HealthGuide.xlsx">
+    <ui:WriteRange AddHeaders="True" DataTable="[ESRIHospitalBedDT]" DisplayName="Write Range - ESRI Hospital Bed Data Sheet" sap:VirtualizedContainerService.HintSize="334,114.666666666667" sap2010:WorkflowViewState.IdRef="WriteRange_5" SheetName="ESRI Hospital Bed Data" WorkbookPath="[in_Config(&quot;HealthGuideFilePath&quot;).ToString]">
       <ui:WriteRange.StartingCell>
         <InArgument x:TypeArguments="x:String">
           <Literal x:TypeArguments="x:String" Value="" />
