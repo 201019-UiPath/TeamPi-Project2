@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>396,1138</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>396,1035.33333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ESRIHospitalBedData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
@@ -59,10 +59,9 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Pull ESRI USA Hospital Bed data based on the person's county by HTTP request to API, extract hospital and bed capacity/utilization data in API response JSON" DisplayName="ESRI Hospital Bed Data" sap:VirtualizedContainerService.HintSize="376,1078" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Pull ESRI USA Hospital Bed data based on the person's county by HTTP request to API, extract hospital and bed capacity/utilization data in API response JSON" DisplayName="ESRI Hospital Bed Data" sap:VirtualizedContainerService.HintSize="376,975.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="responseHeaders" />
       <Variable x:TypeArguments="x:String" Name="responseResult" />
@@ -85,7 +84,7 @@
         <InArgument x:TypeArguments="x:String">[String.Format("https://services7.arcgis.com/LXCny1HyhQCUSueu/arcgis/rest/services/Definitive_Healthcare_USA_Hospital_Beds/FeatureServer/0/query?where=COUNTY_NAME%20%3D%20%27{0}%27&amp;outFields=*&amp;outSR=4326&amp;f=json", in_CountyName)]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:HttpClient Body="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" BodyFormat="application/xml" ClientCertificate="[Nothing]" ClientCertificatePassword="[Nothing]" DisplayName="HTTP Request - ESRI Endpoint" EndPoint="[endpoint]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="HttpClient_1" Method="GET" ResponseHeaders="[responseHeaders]" Result="[responseResult]" TimeoutMS="6000">
+    <ui:HttpClient Body="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" BodyFormat="application/xml" ClientCertificate="[Nothing]" ClientCertificatePassword="[Nothing]" ContinueOnError="True" DisplayName="HTTP Request - ESRI Endpoint" EndPoint="[endpoint]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="HttpClient_1" Method="GET" ResponseHeaders="[responseHeaders]" Result="[responseResult]" TimeoutMS="6000">
       <ui:HttpClient.Attachments>
         <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
       </ui:HttpClient.Attachments>
@@ -111,7 +110,6 @@
         <InArgument x:TypeArguments="x:String">[responseObj.SelectToken("features").ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <WriteLine DisplayName="Write Line - Print Hospital Bed Data" sap:VirtualizedContainerService.HintSize="334,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_8" Text="[responseData]" />
     <Assign DisplayName="Assign - Hospital Bed Data Rows" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_4">
       <Assign.To>
         <OutArgument x:TypeArguments="njl:JEnumerable(njl:JToken)">[responseDataRows]</OutArgument>
@@ -120,7 +118,7 @@
         <InArgument x:TypeArguments="njl:JEnumerable(njl:JToken)">[responseObj.SelectToken("features").Children]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:BuildDataTable DataTable="[out_ESRIHospitalBedDT]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Hospital_x0020_Name&quot; type=&quot;xs:string&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Hospital_x0020_Type&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Number_x0020_of_x0020_Licensed_x0020_Beds&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Number_x0020_of_x0020_Staffed_x0020_Beds&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Number_x0020_of_x0020_ICU_x0020_Beds&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Bed_x0020_Utilization&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;      &lt;xs:unique name=&quot;Constraint1&quot;&gt;&#xD;&#xA;        &lt;xs:selector xpath=&quot;.//TableName&quot; /&gt;&#xD;&#xA;        &lt;xs:field xpath=&quot;Hospital_x0020_Name&quot; /&gt;&#xD;&#xA;      &lt;/xs:unique&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
+    <ui:BuildDataTable DataTable="[out_ESRIHospitalBedDT]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Hospital_x0020_Name&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Hospital_x0020_Type&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Number_x0020_of_x0020_Licensed_x0020_Beds&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Number_x0020_of_x0020_Staffed_x0020_Beds&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Number_x0020_of_x0020_ICU_x0020_Beds&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Bed_x0020_Utilization&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;      &lt;xs:unique name=&quot;Constraint1&quot;&gt;&#xA;        &lt;xs:selector xpath=&quot;.//TableName&quot; /&gt;&#xA;        &lt;xs:field xpath=&quot;Hospital_x0020_Name&quot; /&gt;&#xA;      &lt;/xs:unique&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
     <ui:ForEach x:TypeArguments="njl:JToken" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="334,252.666666666667" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[responseDataRows]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="njl:JToken">
@@ -133,7 +131,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{item.SelectToken(&quot;attributes&quot;).SelectToken(&quot;HOSPITAL_NAME&quot;).ToString,&#xD;&#xA;item.SelectToken(&quot;attributes&quot;).SelectToken(&quot;HOSPITAL_TYPE&quot;).ToString,&#xD;&#xA;item.SelectToken(&quot;attributes&quot;).SelectToken(&quot;NUM_LICENSED_BEDS&quot;).ToString,&#xD;&#xA;item.SelectToken(&quot;attributes&quot;).SelectToken(&quot;NUM_STAFFED_BEDS&quot;).ToString,&#xD;&#xA;item.SelectToken(&quot;attributes&quot;).SelectToken(&quot;NUM_ICU_BEDS&quot;).ToString,&#xD;&#xA;item.SelectToken(&quot;attributes&quot;).SelectToken(&quot;BED_UTILIZATION&quot;).ToString}]" DataTable="[out_ESRIHospitalBedDT]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{item.SelectToken(&quot;attributes&quot;).SelectToken(&quot;HOSPITAL_NAME&quot;).ToString,&#xA;item.SelectToken(&quot;attributes&quot;).SelectToken(&quot;HOSPITAL_TYPE&quot;).ToString,&#xA;item.SelectToken(&quot;attributes&quot;).SelectToken(&quot;NUM_LICENSED_BEDS&quot;).ToString,&#xA;item.SelectToken(&quot;attributes&quot;).SelectToken(&quot;NUM_STAFFED_BEDS&quot;).ToString,&#xA;item.SelectToken(&quot;attributes&quot;).SelectToken(&quot;NUM_ICU_BEDS&quot;).ToString,&#xA;item.SelectToken(&quot;attributes&quot;).SelectToken(&quot;BED_UTILIZATION&quot;).ToString}]" DataTable="[out_ESRIHospitalBedDT]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>
