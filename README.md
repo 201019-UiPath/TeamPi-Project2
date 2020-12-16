@@ -1,47 +1,45 @@
 # Life in the Time of Corona
 
-## In-Progress Idea List
-* Do you need to call a nurse?
-     * How to call a nearby nurse: online directory / through a service?
-     * Distinction between calling a nurse and getting telehealth from your doctor
-* Email address: Pull the user's own email address from Windows Credential Manager on the user's machine/Prompt the user to enter their loved one's email address
-    * Definition of loved one/significant other: demonstrably in relationship for 5 years (sensitive information in email)
-    * What if the user is using macOS instead?
-* Email section containing Solv Health testing appointment booking link list: how to ensure the link stays live and you are not double booking?
-* Mann's ML idea
+## Project Description
 
-## Project Proposal
+Our project automates the creation of a comprehensive coronavirus informational summary/step-by-step personal plan of action for the user to follow in "the time of corona", based on the user's own wellness or ill health. The information guide/action plan contains location-specific information based on the user's state, county, city and zip code, and is emailed to the user/user's loved one as well as sent with complete data attached for the user to save on his/her own machine in the chosen directory.
 
-### Description
-Our project will automate the creation of a comprehensive coronavirus informational summary/step-by-step personal plan of action for the user to follow in "the time of corona", based on the user's own wellness or ill health.
-The information guide/action plan will contain location-specific information based on the user's state, county, city and zip code, and will be emailed to the user/user's loved one as well as saved as a .PDF file in a dedicated directory on the user's machine.
+## Tech Stack
 
-### Automation
-1. Prompt user input:
-    * User's own wellness or ill health
-    * User's state, county, city, zip code
-    * User's/user's loved one's email address
-2. Filter/download [state daily case count data on CDC website](https://data.cdc.gov/Case-Surveillance/United-States-COVID-19-Cases-and-Deaths-by-State-o/9mfq-cb36/data)
-3. Scrape data from downloaded .CSV file
-4. Data processing: read in data from .CSV, remove null records
-5. Generate graphs with Excel
-6. Data scraping of [official covid guidance from CDC website](https://www.cdc.gov/coronavirus/2019-ncov/hcp/duration-isolation.html)
-7. Search and data scrape covid testing sites/telehealth centers based on zip code on [HRSA website](https://findahealthcenter.hrsa.gov/)
-8. Search and data scrape covid and rapid testing sites with appointment booking information on [Solv website](https://www.solvhealth.com/)
-9. Search and download hospital/ICU capacity based on county on [ESRI website](https://coronavirus-resources.esri.com/datasets/definitivehc::definitive-healthcare-usa-hospital-beds/)
-10. Compile and generate information guide/action plan in UiPath
-11. Email information guide/action plan using Outlook
-12. Save information guide/action plan as .PDF in dedicated directory on user's machine
+* UiPath Studio
+* UiPath Orchestrator
+* Excel
+* Outlook
 
-### Tech Stack
-UiPath
-* Excel activities
-* Outlook activities
-* .PDF activities
-* Data scraping
+## Flowchart
 
-### Flowchart
-![flowchart](LitToC_Flowchart_V2.png)
+Our project is implemented with the Dispatcher/Performer model, and our Performer is built on REFramework.
 
-### Team Pi
+![Dispatcher Flowchart](LitToC_DispatcherFlowchart.png)
+
+![Performer Flowchart](LitToC_PerformerFlowchart.png)
+
+## Functionality
+
+* Send daily email to the user containing scraped data in the form of Information Update/Health Guide, based on the user's own wellness, reported in form contained in the email
+* Implement form functionality to allow the user to update his/her wellness and information from the email daily
+* Pull form response Excel sheet and update People.XLSX workbook daily in the Dispatcher workflow, populate PeopleQueue Orchestrator Queue once daily
+
+## Getting Started
+
+* Copy the Life in the Time of Corona project repository onto your machine using the `git clone` command
+* Open the Dispatcher Workflow in UiPath Studio, Publish to Orchestrator
+* Open the Performer Workflow in UiPath Studio, Publish to Orchestrator
+* Create PeopleQueue Orchestrator Queue
+* Save Project Orchestrator Assets/Credentials
+* Configure Outlook/Google with Life in the Time of Corona project account
+* Create Dispatcher process from published package, Set up daily trigger based on time in the morning, every morning
+* Create Performer process from published package, Set up queue-based trigger tied to PeopleQueue Orchestrator Queue
+
+## Contributors
+
 Nicole Holden, James Mann, Angela Li
+
+## License
+
+This project uses the following license: [MIT License](LICENSE).
